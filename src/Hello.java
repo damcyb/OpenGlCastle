@@ -93,7 +93,7 @@ public class Hello {
         GL.createCapabilities();
 
         // Set the clear color
-        glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+        glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
 
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
@@ -110,6 +110,7 @@ public class Hello {
 
     public static void main(String[] args) {
         new Hello().run();
+        System.out.println("test");
     }
 
 }
