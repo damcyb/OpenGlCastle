@@ -20,44 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e014fd7f-e546-460f-806e-66563125f860" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/joml-1.9.24-javadoc.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/joml-1.9.24-sources.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/joml-1.9.24.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-assimp-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-bgfx-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-glfw-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-jemalloc-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-libdivide-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-llvm-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-lmdb-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-lz4-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-meow-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-nanovg-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-nfd-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-nuklear-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-openal-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-opengl-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-opengles-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-openvr-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-opus-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-par-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-remotery-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-rpmalloc-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-shaderc-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-sse-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-stb-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-tinyexr-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-tinyfd-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-tootle-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-vma-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-vulkan-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-xxhash-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-yoga-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lwjgl-zstd-natives-macos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/Hello.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/Hello.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589367938994</updated>
       <workItem from="1589367942746" duration="911000" />
-      <workItem from="1589993837299" duration="1220000" />
+      <workItem from="1589993837299" duration="2891000" />
     </task>
     <servers />
   </component>
@@ -135,25 +98,25 @@
     </state>
     <state x="196" y="75" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995076699" />
     <state x="184" y="98" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.829@0.23.1440.829" timestamp="1589368910626" />
-    <state width="1344" height="419" key="GridCell.Tab.0.bottom" timestamp="1589995056914">
+    <state width="1344" height="90" key="GridCell.Tab.0.bottom" timestamp="1589995233541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1344" height="419" key="GridCell.Tab.0.bottom/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995056914" />
+    <state width="1344" height="90" key="GridCell.Tab.0.bottom/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995233541" />
     <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1589368931496" />
-    <state width="1344" height="419" key="GridCell.Tab.0.center" timestamp="1589995056914">
+    <state width="1344" height="90" key="GridCell.Tab.0.center" timestamp="1589995233541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1344" height="419" key="GridCell.Tab.0.center/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995056914" />
+    <state width="1344" height="90" key="GridCell.Tab.0.center/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995233541" />
     <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1589368931495" />
-    <state width="1344" height="419" key="GridCell.Tab.0.left" timestamp="1589995056914">
+    <state width="1344" height="90" key="GridCell.Tab.0.left" timestamp="1589995233540">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1344" height="419" key="GridCell.Tab.0.left/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995056914" />
+    <state width="1344" height="90" key="GridCell.Tab.0.left/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995233540" />
     <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1589368931495" />
-    <state width="1344" height="419" key="GridCell.Tab.0.right" timestamp="1589995056914">
+    <state width="1344" height="90" key="GridCell.Tab.0.right" timestamp="1589995233541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1344" height="419" key="GridCell.Tab.0.right/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995056914" />
+    <state width="1344" height="90" key="GridCell.Tab.0.right/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995233541" />
     <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1589368931496" />
     <state x="236" y="0" width="1024" height="828" key="SettingsEditor" timestamp="1589994264038">
       <screen x="0" y="0" width="1536" height="824" />
