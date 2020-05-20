@@ -110,6 +110,7 @@ public class Hello {
 
     public static void main(String[] args) {
         new Hello().run();
+        System.out.println("test");
     }
 
 }
