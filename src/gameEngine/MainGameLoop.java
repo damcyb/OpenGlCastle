@@ -49,7 +49,7 @@ public class MainGameLoop {
 //        ModelTexture textureGrass = loader.loadTexture("grassTexture");
 //        TexturedModel texturedGrass = new TexturedModel(tree, textureTree);
         TexturedModel grass = new TexturedModel(OBJLoader.loadOBJModel("grassModel", loader),
-                new ModelTexture(loader.loadTexture("grassTexture").getId()));
+                new ModelTexture(loader.loadTexture("grassTexture2").getId()));
         grass.getTexture().setHasTransparency(true);
         grass.getTexture().setUseFakeLightning(true);
 
@@ -58,7 +58,7 @@ public class MainGameLoop {
 //        ModelTexture textureFern = loader.loadTexture("fern");
 //        TexturedModel texturedFern = new TexturedModel(tree, textureTree);
         TexturedModel fern = new TexturedModel(OBJLoader.loadOBJModel("fern", loader),
-                new ModelTexture(loader.loadTexture("fern2").getId()));
+                new ModelTexture(loader.loadTexture("fern3").getId()));
         fern.getTexture().setHasTransparency(true);
         fern.getTexture().setUseFakeLightning(true);
 
@@ -92,7 +92,7 @@ public class MainGameLoop {
                     0f, 0f, 0f, 1f));
             allObjects.add(new Entity(grass,
                     new Vector3f(random.nextFloat() * 500 - 400,0,random.nextFloat() * -100),
-                    0f, 0f, 0f, 0.3f));
+                    0f, 0f, 0f, 0.5f));
             allObjects.add(new Entity(fern,
                     new Vector3f(random.nextFloat() * 500 - 400,0,random.nextFloat() * -100),
                     0f, 0f, 0f, 0.2f));
@@ -100,8 +100,8 @@ public class MainGameLoop {
         }
 
         Entity houseX = new Entity(texturedHouse,
-                new Vector3f(10,0,10),
-                0f, 0f, 0f, 1f);
+                new Vector3f(0,0,-50),
+                0f, 0f, 0f, 0.5f);
 
         while(!window.isClosed()) {
             //window.clearFrameBuffer();
@@ -113,7 +113,7 @@ public class MainGameLoop {
                 renderer.processEntity(object);
             }
 
-            //renderer.processEntity(houseX);
+            renderer.processEntity(houseX);
 //            guiRenderer.render(guis);
             renderer.render(light, camera);
             window.swapBuffers();
