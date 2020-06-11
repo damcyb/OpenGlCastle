@@ -54,7 +54,7 @@ public class MainGameLoop {
 //        ModelTexture textureFern = loader.loadTexture("fern");
 //        TexturedModel texturedFern = new TexturedModel(tree, textureTree);
         TexturedModel fern = new TexturedModel(OBJLoader.loadOBJModel("fern", loader),
-                new ModelTexture(loader.loadTexture("fern").getId()));
+                new ModelTexture(loader.loadTexture("fern2").getId()));
         fern.getTexture().setHasTransparency(true);
         fern.getTexture().setUseFakeLightning(true);
 
