@@ -3,20 +3,19 @@ package gameEngine;
 import entities.Camera;
 import entities.Entity;
 import entities.Light;
+import guis.GuiRenderer;
+import guis.GuiTexture;
 import models.TestModel;
 import models.TexturedModel;
 import org.lwjgl.util.vector.Vector3f;
 import renderEngine.*;
 import models.RawModel;
-import shaders.StaticShader;
 import terrains.Terrain;
 import textures.ModelTexture;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static org.lwjgl.opengl.GL11.*;
 
 public class MainGameLoop {
 
@@ -29,8 +28,9 @@ public class MainGameLoop {
         window.init();
         window.createCapabilities();
 
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//        glEnable(GL_BLEND);
+//        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//        glEnable(GL_ALPHA_TEST);
 
         //tree
         RawModel tree = OBJLoader.loadOBJModel("tree", loader);
@@ -39,6 +39,10 @@ public class MainGameLoop {
 //        ModelTexture modelTexture = texturedModel.getTexture();
 //        modelTexture.setShineDamper(2);
 //        modelTexture.setReflectivity(1);
+
+        RawModel house = OBJLoader.loadOBJModel("cottage_blender2", loader);
+        ModelTexture textureHouse = loader.loadTexture("cottage_diffuse");
+        TexturedModel texturedHouse = new TexturedModel(house, textureHouse);
 
         //grass
 //        RawModel grass = OBJLoader.loadOBJModel("grassModel", loader);
@@ -68,7 +72,13 @@ public class MainGameLoop {
         Camera camera = new Camera();
         camera.setPosition(new Vector3f(0, 2, 0));
 
-        MasterRenderer renderer = new MasterRenderer(window);
+
+        List<GuiTexture> guis = new ArrayList<>();
+//        GuiTexture guis = new GuiTexture(loader.)
+
+        GuiRenderer guiRenderer = new GuiRenderer(loader);
+
+        MasterRenderer renderer = new MasterRenderer(window, loader);
         Random random = new Random();
 
         List<Entity> allObjects = new ArrayList<>();
@@ -86,7 +96,12 @@ public class MainGameLoop {
             allObjects.add(new Entity(fern,
                     new Vector3f(random.nextFloat() * 500 - 400,0,random.nextFloat() * -100),
                     0f, 0f, 0f, 0.2f));
+
         }
+
+        Entity houseX = new Entity(texturedHouse,
+                new Vector3f(10,0,10),
+                0f, 0f, 0f, 1f);
 
         while(!window.isClosed()) {
             //window.clearFrameBuffer();
@@ -97,10 +112,14 @@ public class MainGameLoop {
             for (Entity object : allObjects) {
                 renderer.processEntity(object);
             }
+
+            //renderer.processEntity(houseX);
+//            guiRenderer.render(guis);
             renderer.render(light, camera);
             window.swapBuffers();
             window.update();
         }
+//        guiRenderer.cleanUp();
         renderer.cleanUp();
         loader.cleanUp();
         window.stop();

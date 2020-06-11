@@ -9,9 +9,9 @@ import static org.lwjgl.glfw.GLFW.*;
 public class Camera {
 
     private static Vector3f position = new Vector3f(0,0,0);
-    private float pitch;
-    private float yaw;
-    private float roll;
+    private static float pitch;
+    private static float yaw;
+    private static float roll;
 
     public Camera() {}
 
@@ -20,13 +20,25 @@ public class Camera {
            position.z -= 0.2f;
        }
         if(key == GLFW_KEY_D) {
-            position.x -= 0.2f;
+            position.x += 0.2f;
         }
         if(key == GLFW_KEY_A) {
-            position.x += 0.2f;
+            position.x -= 0.2f;
         }
         if(key == GLFW_KEY_S) {
             position.z += 0.2f;
+        }
+        if(key == GLFW_KEY_Q) {
+            yaw -= 0.8f;
+        }
+        if(key == GLFW_KEY_E) {
+            yaw += 0.8f;
+        }
+        if(key == GLFW_KEY_Z) {
+            pitch += 0.8f;
+        }
+        if(key == GLFW_KEY_X) {
+            pitch -= 0.8f;
         }
     }
 
