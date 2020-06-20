@@ -17,28 +17,26 @@ public class Camera {
 
     public static void move(int key) {
        if(key == GLFW_KEY_W) {
-           position.z -= 0.2f;
+           position.x += 0.8f * Math.sin(Math.toRadians(yaw));
+           position.z -= 0.8f * Math.cos(Math.toRadians(yaw));
        }
         if(key == GLFW_KEY_D) {
-            position.x += 0.2f;
+            position.x += 0.8f * Math.cos(Math.toRadians(yaw));
+            position.z += 0.8f * Math.sin(Math.toRadians(yaw));
         }
         if(key == GLFW_KEY_A) {
-            position.x -= 0.2f;
+            position.x -= 0.8f * Math.cos(Math.toRadians(yaw));
+            position.z -= 0.8f * Math.sin(Math.toRadians(yaw));
         }
         if(key == GLFW_KEY_S) {
-            position.z += 0.2f;
+            position.x -= 0.8f * Math.sin(Math.toRadians(yaw));
+            position.z += 0.8f * Math.cos(Math.toRadians(yaw));
         }
         if(key == GLFW_KEY_Q) {
             yaw -= 0.8f;
         }
         if(key == GLFW_KEY_E) {
             yaw += 0.8f;
-        }
-        if(key == GLFW_KEY_Z) {
-            pitch += 0.8f;
-        }
-        if(key == GLFW_KEY_X) {
-            pitch -= 0.8f;
         }
         if(key == GLFW_KEY_Z) {
             pitch += 0.8f;

@@ -53,15 +53,20 @@ public class MainGameLoop {
         RawModel house = OBJLoader.loadOBJModel("medieval_tower_2", loader);
         ModelTexture textureHouse = loader.loadTexture("Castle Interior Texture");
         TexturedModel texturedHouse = new TexturedModel(house, textureHouse);
-        texturedHouse.getTexture().setShineDamper(10);
-        texturedHouse.getTexture().setReflectivity(1);
+//        texturedHouse.getTexture().setShineDamper(2);
+//        texturedHouse.getTexture().setReflectivity(2);
 
         //walls and rooks
         RawModel wall = OBJLoader.loadOBJModel("zamek1Converted", loader);
-        ModelTexture textureWall = loader.loadTexture("Castle Exterior Texture");
+        ModelTexture textureWall = loader.loadTexture("wallBricks2");
         TexturedModel texturedWall = new TexturedModel(wall, textureWall);
-        texturedWall.getTexture().setShineDamper(10);
-        texturedWall.getTexture().setReflectivity(1);
+//        texturedWall.getTexture().setShineDamper(2);
+//        texturedWall.getTexture().setReflectivity(2);
+
+        //gate
+        RawModel gate = OBJLoader.loadOBJModel("gate", loader);
+        ModelTexture textureGate = loader.loadTexture("gate4");
+        TexturedModel texturedGate = new TexturedModel(gate, textureGate);
 
         //grass
         TexturedModel grass = new TexturedModel(OBJLoader.loadOBJModel("grassModel", loader),
@@ -80,11 +85,11 @@ public class MainGameLoop {
         Terrain terrain2 = new Terrain(1,0, loader, new ModelTexture(loader.loadTexture("grass").getId()));
 
         //Entity entity = new Entity(texturedTree, new Vector3f(0,0,-25),0,0,0,1);
-        Light light = new Light(new Vector3f(200,200,200), new Vector3f(1,1,1));
-
+        Light light = new Light(new Vector3f(0,1000,100), new Vector3f(1f,1f,1f));
+        //Light light2 = new Light(new Vector3f(0,1000,-100), new Vector3f(0.8f,0.8f,0.8f));
 
         Camera camera = new Camera();
-        camera.setPosition(new Vector3f(0, 2, 0));
+        camera.setPosition(new Vector3f(0, 2, -100));
 
         Light cameraLight = new Light(camera.getPosition(), new Vector3f(1,1,1));
 
@@ -98,23 +103,27 @@ public class MainGameLoop {
             float y = random.nextFloat() * 100 - 50;
             float z = random.nextFloat() * 100 - 50;
             allObjects.add(new Entity(texturedTree,
-                    new Vector3f(random.nextFloat() * 500 - 400,0,random.nextFloat() * -100),
+                    new Vector3f(random.nextFloat() * 500 - 100,0,random.nextFloat() * -200),
                     0f, 0f, 0f, 0.2f));
             allObjects.add(new Entity(grass,
-                    new Vector3f(random.nextFloat() * 500 - 400,0,random.nextFloat() * -100),
+                    new Vector3f(random.nextFloat() * 500 - 100,0,random.nextFloat() * -200),
                     0f, 0f, 0f, 0.5f));
             allObjects.add(new Entity(fern,
-                    new Vector3f(random.nextFloat() * 500 - 400,0,random.nextFloat() * -100),
+                    new Vector3f(random.nextFloat() * 500 - 100,0,random.nextFloat() * -200),
                     0f, 0f, 0f, 0.2f));
         }
 
         Entity houseX = new Entity(texturedHouse,
-                new Vector3f(14,2,-42),
+                new Vector3f(14,2,-142),
                 0f, 0f, 0f, 0.8f);
 
         Entity wallA = new Entity(texturedWall,
-                new Vector3f(2,0,-30),
+                new Vector3f(2,0,-130),
                 0f, 0f, 0f, 1f);
+
+        Entity gateEntity = new Entity(texturedGate,
+                new Vector3f(64,0,-133),
+                0f, 0f, 0f, 5f);
 
         while(!window.isClosed()) {
 
@@ -129,11 +138,11 @@ public class MainGameLoop {
             }
 
             renderer.processEntity(houseX);
-//            Entity wallA = new Entity(texturedWall,
-//                    new Vector3f(2,0,-30),
-//                    0f, 0f, 0f, 0.5f);
-//            angle = angle % 360;
-//            angle++;
+            renderer.processEntity(gateEntity);
+
+
+            gateEntity.increaseRotation(0, 0.5f, 0);
+
             renderer.processEntity(wallA);
             renderer.render(light, camera);
             window.swapBuffers();
