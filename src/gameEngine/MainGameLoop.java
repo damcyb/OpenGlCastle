@@ -44,6 +44,42 @@ public class MainGameLoop {
         ModelTexture textureHouse = loader.loadTexture("cottage_diffuse");
         TexturedModel texturedHouse = new TexturedModel(house, textureHouse);
 
+        //horse
+        RawModel horse = OBJLoader.loadOBJModel("horse", loader);
+        ModelTexture textureHorse = loader.loadTexture("horse_texture");
+        TexturedModel texturedHorse = new TexturedModel(horse, textureHorse);
+
+        //tower
+        RawModel tower = OBJLoader.loadOBJModel("Medieval tower_mid", loader);
+        ModelTexture textureTower = loader.loadTexture("Medieval tower_mid_Col");
+        TexturedModel texturedTower = new TexturedModel(tower, textureTower);
+
+        //outside house
+        RawModel house2 = OBJLoader.loadOBJModel("medieval house2", loader);
+        ModelTexture textureHouse2 = loader.loadTexture("medieval house2");
+        TexturedModel texturedHouse2 = new TexturedModel(house2, textureHouse2);
+
+        //wood
+        RawModel wood = OBJLoader.loadOBJModel("wood", loader);
+        ModelTexture textureWood = loader.loadTexture("WoodTexture");
+        TexturedModel texturedWood = new TexturedModel(wood, textureWood);
+
+        //market stand
+        RawModel market = OBJLoader.loadOBJModel("market-stand", loader);
+        ModelTexture textureMarket = loader.loadTexture("market-stand");
+        TexturedModel texturedMarket = new TexturedModel(market, textureMarket);
+
+        //fence
+        RawModel fence = OBJLoader.loadOBJModel("fence", loader);
+        ModelTexture textureFence = loader.loadTexture("fence");
+        TexturedModel texturedFence = new TexturedModel(fence, textureFence);
+
+        //chest
+        RawModel chest = OBJLoader.loadOBJModel("chest", loader);
+        ModelTexture textureChest = loader.loadTexture("chest");
+        TexturedModel texturedChest = new TexturedModel(chest, textureChest);
+
+
         //grass
 //        RawModel grass = OBJLoader.loadOBJModel("grassModel", loader);
 //        ModelTexture textureGrass = loader.loadTexture("grassTexture");
@@ -103,6 +139,37 @@ public class MainGameLoop {
                 new Vector3f(0,0,-50),
                 0f, 0f, 0f, 0.5f);
 
+        Entity horseX = new Entity(texturedHorse,
+                new Vector3f(0,2,-30),
+                0f, 0f, 0f, 0.01f);
+
+        Entity towerX = new Entity(texturedTower,
+                new Vector3f(30,0,-50),
+                0f, 0f, 0f, 0.5f);
+
+        Entity house2X = new Entity(texturedHouse2,
+                new Vector3f(0,0,-10),
+                0f, 0f, 0f, 0.1f);
+
+        Entity woodX = new Entity(texturedWood,
+                new Vector3f(10,2,-10),
+                0f, 0f, 0f, 0.2f);
+
+        Entity marketX = new Entity(texturedMarket,
+                new Vector3f(10,0,-10),
+                0f, 0f, 0f, 1.5f);
+
+        Entity fenceX = new Entity(texturedFence,
+                new Vector3f(5,0,-10),
+                0f, 0f, 0f, 0.5f);
+        Entity fence2X = new Entity(texturedFence,
+                new Vector3f(5,0,-7),
+                0f, 0f, 0f, 0.5f);
+
+        Entity chestX = new Entity(texturedChest,
+                new Vector3f(3,0,-5),
+                0f, 180f, 0f, 0.1f);
+
         while(!window.isClosed()) {
             //window.clearFrameBuffer();
             //entity.increasePosition(0, 0,-0.01f);
@@ -114,6 +181,14 @@ public class MainGameLoop {
             }
 
             renderer.processEntity(houseX);
+            renderer.processEntity(horseX);
+            renderer.processEntity(towerX);
+            renderer.processEntity(house2X);
+            //renderer.processEntity(woodX);
+            renderer.processEntity(marketX);
+            renderer.processEntity(fenceX);
+            renderer.processEntity(fence2X);
+            renderer.processEntity(chestX);
 //            guiRenderer.render(guis);
             renderer.render(light, camera);
             window.swapBuffers();
