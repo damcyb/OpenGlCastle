@@ -7,6 +7,7 @@ import guis.GuiRenderer;
 import guis.GuiTexture;
 import models.TestModel;
 import models.TexturedModel;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector3f;
 import renderEngine.*;
 import models.RawModel;
@@ -17,46 +18,58 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL13.GL_SAMPLE_ALPHA_TO_COVERAGE;
+import static org.lwjgl.opengl.GL14.glBlendFuncSeparate;
+
 public class MainGameLoop {
 
     public static void main(String[] args) {
 
-        Window window = new Window(800, 800, "Test");
+        Window window = new Window(1920, 1000, "Test");
         Loader loader = new Loader();
-        TestModel testModel = new TestModel();
+
+        float angle = 0.0f;
 
         window.init();
         window.createCapabilities();
 
-//        glEnable(GL_BLEND);
-//        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-//        glEnable(GL_ALPHA_TEST);
+        GL11.glEnable(GL_BLEND);
+        GL11.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glAlphaFunc(GL_GREATER, 0.5f);
+        glEnable(GL_ALPHA_TEST);
+        glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+        glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE);
 
         //tree
-        RawModel tree = OBJLoader.loadOBJModel("tree", loader);
-        ModelTexture textureTree = loader.loadTexture("tree");
+        RawModel tree = OBJLoader.loadOBJModel("pine", loader);
+        ModelTexture textureTree = loader.loadTexture("pine");
         TexturedModel texturedTree = new TexturedModel(tree, textureTree);
-//        ModelTexture modelTexture = texturedModel.getTexture();
+//        ModelTexture modelTexture = texturedTree.getTexture();
 //        modelTexture.setShineDamper(2);
 //        modelTexture.setReflectivity(1);
 
-        RawModel house = OBJLoader.loadOBJModel("cottage_blender2", loader);
-        ModelTexture textureHouse = loader.loadTexture("cottage_diffuse");
+        //castle
+        RawModel house = OBJLoader.loadOBJModel("medieval_tower_2", loader);
+        ModelTexture textureHouse = loader.loadTexture("Castle Interior Texture");
         TexturedModel texturedHouse = new TexturedModel(house, textureHouse);
+        texturedHouse.getTexture().setShineDamper(10);
+        texturedHouse.getTexture().setReflectivity(1);
+
+        //walls and rooks
+        RawModel wall = OBJLoader.loadOBJModel("zamek1Converted", loader);
+        ModelTexture textureWall = loader.loadTexture("Castle Exterior Texture");
+        TexturedModel texturedWall = new TexturedModel(wall, textureWall);
+        texturedWall.getTexture().setShineDamper(10);
+        texturedWall.getTexture().setReflectivity(1);
 
         //grass
-//        RawModel grass = OBJLoader.loadOBJModel("grassModel", loader);
-//        ModelTexture textureGrass = loader.loadTexture("grassTexture");
-//        TexturedModel texturedGrass = new TexturedModel(tree, textureTree);
         TexturedModel grass = new TexturedModel(OBJLoader.loadOBJModel("grassModel", loader),
                 new ModelTexture(loader.loadTexture("grassTexture2").getId()));
         grass.getTexture().setHasTransparency(true);
         grass.getTexture().setUseFakeLightning(true);
 
         //fern
-//        RawModel fern = OBJLoader.loadOBJModel("fern", loader);
-//        ModelTexture textureFern = loader.loadTexture("fern");
-//        TexturedModel texturedFern = new TexturedModel(tree, textureTree);
         TexturedModel fern = new TexturedModel(OBJLoader.loadOBJModel("fern", loader),
                 new ModelTexture(loader.loadTexture("fern3").getId()));
         fern.getTexture().setHasTransparency(true);
@@ -69,14 +82,11 @@ public class MainGameLoop {
         //Entity entity = new Entity(texturedTree, new Vector3f(0,0,-25),0,0,0,1);
         Light light = new Light(new Vector3f(200,200,200), new Vector3f(1,1,1));
 
+
         Camera camera = new Camera();
         camera.setPosition(new Vector3f(0, 2, 0));
 
-
-        List<GuiTexture> guis = new ArrayList<>();
-//        GuiTexture guis = new GuiTexture(loader.)
-
-        GuiRenderer guiRenderer = new GuiRenderer(loader);
+        Light cameraLight = new Light(camera.getPosition(), new Vector3f(1,1,1));
 
         MasterRenderer renderer = new MasterRenderer(window, loader);
         Random random = new Random();
@@ -89,21 +99,26 @@ public class MainGameLoop {
             float z = random.nextFloat() * 100 - 50;
             allObjects.add(new Entity(texturedTree,
                     new Vector3f(random.nextFloat() * 500 - 400,0,random.nextFloat() * -100),
-                    0f, 0f, 0f, 1f));
+                    0f, 0f, 0f, 0.2f));
             allObjects.add(new Entity(grass,
                     new Vector3f(random.nextFloat() * 500 - 400,0,random.nextFloat() * -100),
                     0f, 0f, 0f, 0.5f));
             allObjects.add(new Entity(fern,
                     new Vector3f(random.nextFloat() * 500 - 400,0,random.nextFloat() * -100),
                     0f, 0f, 0f, 0.2f));
-
         }
 
         Entity houseX = new Entity(texturedHouse,
-                new Vector3f(0,0,-50),
-                0f, 0f, 0f, 0.5f);
+                new Vector3f(14,2,-42),
+                0f, 0f, 0f, 0.8f);
+
+        Entity wallA = new Entity(texturedWall,
+                new Vector3f(2,0,-30),
+                0f, 0f, 0f, 1f);
 
         while(!window.isClosed()) {
+
+            cameraLight.setPosition(camera.getPosition());
             //window.clearFrameBuffer();
             //entity.increasePosition(0, 0,-0.01f);
             renderer.processTerrain(terrain);
@@ -114,12 +129,16 @@ public class MainGameLoop {
             }
 
             renderer.processEntity(houseX);
-//            guiRenderer.render(guis);
+//            Entity wallA = new Entity(texturedWall,
+//                    new Vector3f(2,0,-30),
+//                    0f, 0f, 0f, 0.5f);
+//            angle = angle % 360;
+//            angle++;
+            renderer.processEntity(wallA);
             renderer.render(light, camera);
             window.swapBuffers();
             window.update();
         }
-//        guiRenderer.cleanUp();
         renderer.cleanUp();
         loader.cleanUp();
         window.stop();

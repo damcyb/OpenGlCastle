@@ -77,6 +77,7 @@ public class Window {
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the gameLoop.window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the gameLoop.window will be resizable
 
+
         // Create the gameLoop.window
         window = glfwCreateWindow(width, height, title, NULL, NULL);
         if ( window == NULL )

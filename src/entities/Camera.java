@@ -40,6 +40,18 @@ public class Camera {
         if(key == GLFW_KEY_X) {
             pitch -= 0.8f;
         }
+        if(key == GLFW_KEY_Z) {
+            pitch += 0.8f;
+        }
+        if(key == GLFW_KEY_X) {
+            pitch -= 0.8f;
+        }
+        if(key == GLFW_KEY_1) {
+            position.y += 0.2f;
+        }
+        if(key == GLFW_KEY_2) {
+            position.y -= 0.2f;
+        }
     }
 
     public Vector3f getPosition() {
