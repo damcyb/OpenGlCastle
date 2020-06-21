@@ -57,6 +57,9 @@ public class Loader {
         //decode
         try {
             decoder.decode(buffer, decoder.getWidth() * 4, PNGDecoder.Format.RGBA);
+            GL30.glGenerateMipmap(GL11.GL_TEXTURE_2D);
+            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR_MIPMAP_LINEAR);
+            GL11.glTexParameterf(GL11.GL_TEXTURE_2D, GL14.GL_TEXTURE_LOD_BIAS, -1f);
         } catch (IOException e) {
             e.printStackTrace();
         }
