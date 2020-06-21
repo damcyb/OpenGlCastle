@@ -6,10 +6,14 @@ import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL11C;
+import org.lwjgl.opengl.GL13;
 import org.lwjgl.system.MemoryStack;
 
 import java.nio.IntBuffer;
 
+import static java.lang.Boolean.FALSE;
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.glfw.GLFW.glfwShowWindow;
@@ -77,7 +81,7 @@ public class Window {
         glfwDefaultWindowHints(); // optional, the current gameLoop.window hints are already the default
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the gameLoop.window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the gameLoop.window will be resizable
-
+        glfwWindowHint(GLFW_SAMPLES,8);
 
         // Create the gameLoop.window
         window = glfwCreateWindow(width, height, title, NULL, NULL);
