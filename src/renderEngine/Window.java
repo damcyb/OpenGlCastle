@@ -90,7 +90,7 @@ public class Window {
                 glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
             else {
                 Camera.move(key);
-                Door.openDoor(key);
+                //Door.openDoor(key);
             }
         });
 
