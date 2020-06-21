@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e014fd7f-e546-460f-806e-66563125f860" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/renderEngine/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/renderEngine/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/renderEngine/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/renderEngine/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/Window.java" afterDir="false" />
-    </list>
+    <list default="true" id="e014fd7f-e546-460f-806e-66563125f860" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
