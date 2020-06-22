@@ -50,16 +50,16 @@ public class MainGameLoop {
 //        modelTexture.setReflectivity(1);
 
         //castle
-        RawModel house = OBJLoader.loadOBJModel("medieval_tower_2", loader);
-        ModelTexture textureHouse = loader.loadTexture("Castle Interior Texture");
+        RawModel house = OBJLoader.loadOBJModel("twierdza6Converted", loader);
+        ModelTexture textureHouse = loader.loadTexture("wallBricks3");
         TexturedModel texturedHouse = new TexturedModel(house, textureHouse);
-//        texturedHouse.getTexture().setShineDamper(2);
-//        texturedHouse.getTexture().setReflectivity(2);
+        texturedHouse.getTexture().setShineDamper(2);
+        texturedHouse.getTexture().setReflectivity(1);
 
         //walls and rooks
-        RawModel wall = OBJLoader.loadOBJModel("zamek1Converted", loader);
-        ModelTexture textureWall = loader.loadTexture("wallBricks2");
-        TexturedModel texturedWall = new TexturedModel(wall, textureWall);
+//        RawModel wall = OBJLoader.loadOBJModel("zamek1Converted", loader);
+//        ModelTexture textureWall = loader.loadTexture("wallBricks2");
+//        TexturedModel texturedWall = new TexturedModel(wall, textureWall);
 //        texturedWall.getTexture().setShineDamper(2);
 //        texturedWall.getTexture().setReflectivity(2);
 
@@ -67,6 +67,24 @@ public class MainGameLoop {
         RawModel gate = OBJLoader.loadOBJModel("gate", loader);
         ModelTexture textureGate = loader.loadTexture("gate4");
         TexturedModel texturedGate = new TexturedModel(gate, textureGate);
+
+        RawModel tower = OBJLoader.loadOBJModel("castleD4converted", loader);
+        ModelTexture textureTower = loader.loadTexture("wallBricks3");
+        TexturedModel texturedTower = new TexturedModel(tower, textureTower);
+        texturedTower.getTexture().setShineDamper(2);
+        texturedTower.getTexture().setReflectivity(1);
+
+        RawModel pavement = OBJLoader.loadOBJModel("posadzka zamkowa", loader);
+        ModelTexture texturePavement = loader.loadTexture("castlefloor");
+        TexturedModel texturedPavement = new TexturedModel(pavement, texturePavement);
+        texturedPavement.getTexture().setShineDamper(2);
+        texturedPavement.getTexture().setReflectivity(1);
+
+        RawModel pennant = OBJLoader.loadOBJModel("emblem", loader);
+        ModelTexture texturePennant = loader.loadTexture("emblem");
+        TexturedModel texturedPennant = new TexturedModel(pennant, texturePennant);
+//        texturedPennant.getTexture().setShineDamper(1);
+//        texturedPennant.getTexture().setReflectivity(1);
 
         //grass
         TexturedModel grass = new TexturedModel(OBJLoader.loadOBJModel("grassModel", loader),
@@ -85,11 +103,11 @@ public class MainGameLoop {
         Terrain terrain2 = new Terrain(1,0, loader, new ModelTexture(loader.loadTexture("grass").getId()));
 
         //Entity entity = new Entity(texturedTree, new Vector3f(0,0,-25),0,0,0,1);
-        Light light = new Light(new Vector3f(0,1000,100), new Vector3f(1f,1f,1f));
+        Light light = new Light(new Vector3f(1000,1000,1000), new Vector3f(0.8f,0.8f,0.8f));
         //Light light2 = new Light(new Vector3f(0,1000,-100), new Vector3f(0.8f,0.8f,0.8f));
 
         Camera camera = new Camera();
-        camera.setPosition(new Vector3f(0, 2, -100));
+        camera.setPosition(new Vector3f(132, 2, -140));
 
         Light cameraLight = new Light(camera.getPosition(), new Vector3f(1,1,1));
 
@@ -114,16 +132,26 @@ public class MainGameLoop {
         }
 
         Entity houseX = new Entity(texturedHouse,
-                new Vector3f(14,2,-142),
+                new Vector3f(50,4.5f,-130),
                 0f, 0f, 0f, 0.8f);
-
-        Entity wallA = new Entity(texturedWall,
-                new Vector3f(2,0,-130),
-                0f, 0f, 0f, 1f);
 
         Entity gateEntity = new Entity(texturedGate,
                 new Vector3f(64,0,-133),
                 0f, 0f, 0f, 5f);
+
+        Entity towerEntity = new Entity(texturedTower,
+                new Vector3f(74,4.5f,-133),
+                0f, 0f, 0f, 1f);
+
+        Entity pavementEntity = new Entity(texturedPavement,
+                new Vector3f(74, 0.05f, -133),
+                0f, 90f, 0f, 1f);
+
+        Entity pennantEntity = new Entity(texturedPennant,
+                new Vector3f(53.0f, 15f, -130),
+                0f, 0f, 0f, 1f);
+
+        //gateEntity.translate(0.0f, 0.0f, 2f);
 
         while(!window.isClosed()) {
 
@@ -137,13 +165,15 @@ public class MainGameLoop {
                 renderer.processEntity(object);
             }
 
+
+            renderer.processEntity(pavementEntity);
+            renderer.processEntity(pennantEntity);
             renderer.processEntity(houseX);
-            renderer.processEntity(gateEntity);
+            //renderer.processEntity(gateEntity);
+            renderer.processEntity(towerEntity);
+            //gateEntity.increaseRotation(0f, 0.5f, 0f);
 
-
-            gateEntity.increaseRotation(0, 0.5f, 0);
-
-            renderer.processEntity(wallA);
+            //renderer.processEntity(wallA);
             renderer.render(light, camera);
             window.swapBuffers();
             window.update();

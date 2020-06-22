@@ -1,6 +1,8 @@
 package entities;
 
 import models.TexturedModel;
+import org.lwjgl.glfw.GLFW;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector3f;
 
 public class Entity {
@@ -29,6 +31,11 @@ public class Entity {
         this.rotX += dx;
         this.rotY += dy;
         this.rotZ += dz;
+    }
+
+    public void translate(float dx, float dy, float dz) {
+        GL11.glTranslatef(dx + getPosition().x, dy + getPosition().y, dz + getPosition().z);
+        GL11.glRotatef(30, 0, 0, 1.0f);
     }
 
     public TexturedModel getModel() {

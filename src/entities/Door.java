@@ -1,6 +1,7 @@
 package entities;
 
 import models.TexturedModel;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector3f;
 
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_SPACE;
