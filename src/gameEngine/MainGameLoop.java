@@ -47,6 +47,10 @@ public class MainGameLoop {
         ModelTexture textureHorse = loader.loadTexture("horse_texture");
         TexturedModel texturedHorse = new TexturedModel(horse, textureHorse);
 
+        //horn lantern
+        RawModel lantern = OBJLoader.loadOBJModel("lantern", loader);
+        ModelTexture textureLantern = loader.loadTexture("lantern_texture");
+        TexturedModel texturedLantern = new TexturedModel(lantern, textureLantern);
 
         /////////////////
 
@@ -99,8 +103,9 @@ public class MainGameLoop {
         Light light = new Light(new Vector3f(0,1000,100), new Vector3f(1f,1f,1f));
         List<Light> lights = new ArrayList<Light>();
         lights.add(light);
-        lights.add(new Light(new Vector3f(-200, 10,-200), new Vector3f(10,0,0)));
-        lights.add(new Light(new Vector3f(200, 10,200), new Vector3f(0,0,10)));
+        lights.add(new Light(new Vector3f(-5, 0.3f, -130), new Vector3f(2,2,0), new Vector3f(1, 0.01f, 0.002f)));
+        //lights.add(new Light(new Vector3f(-200, 10,-200), new Vector3f(10,0,0)));
+        //lights.add(new Light(new Vector3f(200, 10,200), new Vector3f(0,0,10)));
         //Light light2 = new Light(new Vector3f(0,1000,-100), new Vector3f(0.8f,0.8f,0.8f));
 
         Camera camera = new Camera();
@@ -144,6 +149,10 @@ public class MainGameLoop {
                 new Vector3f(0,2,-130),
                 0f,0f,0f,0.01f);
 
+        Entity lanternX = new Entity(texturedLantern,
+                new Vector3f(-5,0,-130),
+                0f,0f,0f,1f);
+
         while(!window.isClosed()) {
 
             cameraLight.setPosition(camera.getPosition());
@@ -159,6 +168,7 @@ public class MainGameLoop {
             renderer.processEntity(houseX);
             renderer.processEntity(gateEntity);
             renderer.processEntity(horseX);
+            renderer.processEntity(lanternX);
 
 
             gateEntity.increaseRotation(0, 0.5f, 0);

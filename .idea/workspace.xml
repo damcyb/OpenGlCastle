@@ -20,17 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e014fd7f-e546-460f-806e-66563125f860" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/gameEngine/MainGameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/gameEngine/MainGameLoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Light.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Light.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameEngine/MainGameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameEngine/MainGameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shaders/StaticShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/StaticShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shaders/TerrainShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/TerrainShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shaders/fragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/fragmentShader.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/vertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/vertexShader.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,7 @@
       <updated>1589367938994</updated>
       <workItem from="1589367942746" duration="911000" />
       <workItem from="1589993837299" duration="1220000" />
-      <workItem from="1592835672412" duration="8655000" />
+      <workItem from="1592835672412" duration="12550000" />
     </task>
     <servers />
   </component>
@@ -154,28 +152,32 @@
     <state x="196" y="75" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1589995076699" />
     <state x="184" y="98" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.829@0.23.1440.829" timestamp="1589368910626" />
     <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.832@0.23.1440.832" timestamp="1589999072475" />
-    <state width="1493" height="138" key="GridCell.Tab.0.bottom" timestamp="1592851325117">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1592858500933">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="138" key="GridCell.Tab.0.bottom/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1592851325117" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1592858500933" />
+    <state width="1493" height="138" key="GridCell.Tab.0.bottom" timestamp="1592861292124">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="138" key="GridCell.Tab.0.bottom/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1592861292124" />
     <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1589368931496" />
     <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1589999089379" />
-    <state width="1493" height="138" key="GridCell.Tab.0.center" timestamp="1592851325117">
+    <state width="1493" height="138" key="GridCell.Tab.0.center" timestamp="1592861292124">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="138" key="GridCell.Tab.0.center/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1592851325117" />
+    <state width="1493" height="138" key="GridCell.Tab.0.center/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1592861292124" />
     <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1589368931495" />
     <state width="1398" height="213" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1589999089379" />
-    <state width="1493" height="138" key="GridCell.Tab.0.left" timestamp="1592851325117">
+    <state width="1493" height="138" key="GridCell.Tab.0.left" timestamp="1592861292124">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="138" key="GridCell.Tab.0.left/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1592851325117" />
+    <state width="1493" height="138" key="GridCell.Tab.0.left/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1592861292124" />
     <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1589368931495" />
     <state width="1398" height="213" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1589999089378" />
-    <state width="1493" height="138" key="GridCell.Tab.0.right" timestamp="1592851325117">
+    <state width="1493" height="138" key="GridCell.Tab.0.right" timestamp="1592861292124">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="138" key="GridCell.Tab.0.right/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1592851325117" />
+    <state width="1493" height="138" key="GridCell.Tab.0.right/0.-1080.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1592861292124" />
     <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1589368931496" />
     <state width="1398" height="213" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1589999089379" />
     <state x="221" y="23" width="960" height="832" key="SettingsEditor" timestamp="1589996885354">
