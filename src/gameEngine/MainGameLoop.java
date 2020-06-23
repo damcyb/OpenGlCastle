@@ -105,13 +105,6 @@ public class MainGameLoop {
         texturedFortress.getTexture().setShineDamper(2);
         texturedFortress.getTexture().setReflectivity(1);
 
-        //walls and rooks
-//        RawModel wall = OBJLoader.loadOBJModel("zamek1Converted", loader);
-//        ModelTexture textureWall = loader.loadTexture("wallBricks2");
-//        TexturedModel texturedWall = new TexturedModel(wall, textureWall);
-//        texturedWall.getTexture().setShineDamper(2);
-//        texturedWall.getTexture().setReflectivity(2);
-
         //gate
         RawModel gate = OBJLoader.loadOBJModel("gate2", loader);
         ModelTexture textureGate = loader.loadTexture("iron gate");
@@ -176,13 +169,6 @@ public class MainGameLoop {
 //        texturedRainProtection.getTexture().setShineDamper(2);
 //        texturedRainProtection.getTexture().setReflectivity(1);
 
-        RawModel hay = OBJLoader.loadOBJModel("hayConverted", loader);
-        ModelTexture textureHay = loader.loadTexture("hay");
-        TexturedModel texturedHay = new TexturedModel(hay, textureHay);
-
-//        texturedHay.getTexture().setShineDamper(2);
-//        texturedHay.getTexture().setReflectivity(1);
-
         RawModel stable = OBJLoader.loadOBJModel("stable", loader);
         ModelTexture textureStable = loader.loadTexture("wood2");
         TexturedModel texturedStable = new TexturedModel(stable, textureStable);
@@ -212,6 +198,18 @@ public class MainGameLoop {
         TexturedModel texturedBench = new TexturedModel(bench, textureBench);
         texturedBench.getTexture().setShineDamper(2);
         texturedBench.getTexture().setReflectivity(1);
+
+        RawModel well = OBJLoader.loadOBJModel("well2", loader);
+        ModelTexture textureWell = loader.loadTexture("well");
+        TexturedModel texturedWell = new TexturedModel(well, textureWell);
+//        texturedWell.getTexture().setShineDamper(2);
+//        texturedWell.getTexture().setReflectivity(1);
+
+        RawModel chest = OBJLoader.loadOBJModel("chest", loader);
+        ModelTexture textureChest = loader.loadTexture("chest");
+        TexturedModel texturedChest = new TexturedModel(chest, textureChest);
+//        texturedChest.getTexture().setShineDamper(2);
+//        texturedChest.getTexture().setReflectivity(1);
 
         //grass
         TexturedModel grass = new TexturedModel(OBJLoader.loadOBJModel("grassModel", loader),
@@ -243,7 +241,7 @@ public class MainGameLoop {
         lights.add(new Light(new Vector3f(98, 0.3f, -145), new Vector3f(0.4f,0.2f,0), new Vector3f(2.5f, 0.01f, 0.002f)));
         lights.add(new Light(new Vector3f(49, 0.3f, -125), new Vector3f(0.4f,0.2f,0), new Vector3f(2f, 0.01f, 0.002f)));
 
-        //lights.add(new Light(new Vector3f(-200, 10,-200), new Vector3f(10,0,0)));
+        lights.add(new Light(new Vector3f(52, 0,-130), new Vector3f(0.5f,0.25f,0), new Vector3f(1.5f, 0.01f, 0.002f)));
         //lights.add(new Light(new Vector3f(200, 10,200), new Vector3f(0,0,10)));
         //Light light2 = new Light(new Vector3f(0,1000,-100), new Vector3f(0.8f,0.8f,0.8f));
 
@@ -383,10 +381,6 @@ public class MainGameLoop {
                 new Vector3f(95.5f, 0.1f, -140),
                 0f, -180f, -0f, 4f);
 
-        Entity hayEntity = new Entity(texturedHay,
-                new Vector3f(99.5f, 0f, -140),
-                0f, 0f, -0f, 1f);
-
         Entity stableEntity = new Entity(texturedStable,
                 new Vector3f(70f, 0.1f, -118.5f),
                 0f, 180f, -0f, 0.4f);
@@ -423,7 +417,13 @@ public class MainGameLoop {
                 new Vector3f(53.5f, 0f, -127.5f),
                 0f, 90f, -0f, 6f);
 
-        //gateEntity.translate(0.0f, 0.0f, 2f);
+        Entity wellEntity = new Entity(texturedWell,
+                new Vector3f(88.5f, 0f, -138.5f),
+                0f, 0f, -0f, 0.5f);
+
+        Entity chestEntity = new Entity(texturedChest,
+                new Vector3f(50f, 0f, -126.5f),
+                0f, -30f, -0f, 0.1f);
 
         Entity lanternStable = new Entity(texturedLantern, new Vector3f(62,0,-118),0f,0f,0f,1f);
         Entity lanternBarrack = new Entity(texturedLantern, new Vector3f(95,0,-118),0f,0f,0f,1f);
@@ -513,8 +513,8 @@ public class MainGameLoop {
             renderer.processEntity(benchEntity);
             renderer.processEntity(knightFortressEntity);
             renderer.processEntity(knightFortressEntity2);
-            //renderer.processEntity(hayEntity);
-            //gateEntity.increaseRotation(0f, 0.5f, 0f);
+            renderer.processEntity(wellEntity);
+            renderer.processEntity(chestEntity);
 
             if(frame%7==0){
                 number=number+1;
@@ -699,7 +699,6 @@ public class MainGameLoop {
             frame=frame+1;
             if(number==44) number = 1;
 
-            //renderer.processEntity(wallA);
             renderer.render(lights, camera);
             window.swapBuffers();
             window.update();
