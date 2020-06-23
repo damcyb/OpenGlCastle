@@ -221,19 +221,55 @@ public class MainGameLoop {
                 0f,0f,0f,1f);
 
         //animation
-        Entity ch1X = new Entity(texturedCh1, new Vector3f(130,0,-130), 0f,0f,0f,0.5f);
 
-        Entity ch2X = new Entity(texturedCh2, new Vector3f(130,0,-129), 0f,0f,0f,0.5f);
 
-        Entity ch3X = new Entity(texturedCh3, new Vector3f(130,0,-128), 0f,0f,0f,0.5f);
-        Entity ch4X = new Entity(texturedCh4, new Vector3f(130,0,-127), 0f,0f,0f,0.5f);
-        Entity ch5X = new Entity(texturedCh5, new Vector3f(130,0,-126), 0f,0f,0f,0.5f);
-        Entity ch6X = new Entity(texturedCh6, new Vector3f(130,0,-125), 0f,0f,0f,0.5f);
-        Entity ch7X = new Entity(texturedCh7, new Vector3f(130,0,-124), 0f,0f,0f,0.5f);
-        Entity ch8X = new Entity(texturedCh8, new Vector3f(130,0,-123), 0f,0f,0f,0.5f);
-        Entity ch9X = new Entity(texturedCh9, new Vector3f(130,0,-122), 0f,0f,0f,0.5f);
-        Entity ch10X = new Entity(texturedCh10, new Vector3f(130,0,-121), 0f,0f,0f,0.5f);
-        Entity ch11X = new Entity(texturedCh11, new Vector3f(130,0,-120), 0f,0f,0f,0.5f);
+        Entity ch1X = new Entity(texturedCh1, new Vector3f(130,0,-130), 0f,0f,0f,0.3f);
+        Entity ch2X = new Entity(texturedCh2, new Vector3f(130,0,-129), 0f,0f,0f,0.3f);
+        Entity ch3X = new Entity(texturedCh3, new Vector3f(130,0,-128), 0f,0f,0f,0.3f);
+        Entity ch4X = new Entity(texturedCh4, new Vector3f(130,0,-127), 0f,0f,0f,0.3f);
+        Entity ch5X = new Entity(texturedCh5, new Vector3f(130,0,-126), 0f,0f,0f,0.3f);
+        Entity ch6X = new Entity(texturedCh6, new Vector3f(130,0,-125), 0f,0f,0f,0.3f);
+        Entity ch7X = new Entity(texturedCh7, new Vector3f(130,0,-124), 0f,0f,0f,0.3f);
+        Entity ch8X = new Entity(texturedCh8, new Vector3f(130,0,-123), 0f,0f,0f,0.3f);
+        Entity ch9X = new Entity(texturedCh9, new Vector3f(130,0,-122), 0f,0f,0f,0.3f);
+        Entity ch10X = new Entity(texturedCh10, new Vector3f(130,0,-121), 0f,0f,0f,0.3f);
+        Entity ch11X = new Entity(texturedCh11, new Vector3f(130,0,-120), 0f,0f,0f,0.3f);
+
+        Entity ch21X = new Entity(texturedCh1, new Vector3f(130,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch22X = new Entity(texturedCh2, new Vector3f(129,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch23X = new Entity(texturedCh3, new Vector3f(128,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch24X = new Entity(texturedCh4, new Vector3f(127,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch25X = new Entity(texturedCh5, new Vector3f(126,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch26X = new Entity(texturedCh6, new Vector3f(125,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch27X = new Entity(texturedCh7, new Vector3f(124,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch28X = new Entity(texturedCh8, new Vector3f(123,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch29X = new Entity(texturedCh9, new Vector3f(122,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch30X = new Entity(texturedCh10, new Vector3f(121,0,-120), 0f,-90f,0f,0.3f);
+        Entity ch31X = new Entity(texturedCh11, new Vector3f(120,0,-120), 0f,-90f,0f,0.3f);
+
+        Entity ch41X = new Entity(texturedCh1, new Vector3f(120,0,-120), 0f,180f,0f,0.3f);
+        Entity ch42X = new Entity(texturedCh2, new Vector3f(120,0,-121), 0f,180f,0f,0.3f);
+        Entity ch43X = new Entity(texturedCh3, new Vector3f(120,0,-122), 0f,180f,0f,0.3f);
+        Entity ch44X = new Entity(texturedCh4, new Vector3f(120,0,-123), 0f,180f,0f,0.3f);
+        Entity ch45X = new Entity(texturedCh5, new Vector3f(120,0,-124), 0f,180f,0f,0.3f);
+        Entity ch46X = new Entity(texturedCh6, new Vector3f(120,0,-125), 0f,180f,0f,0.3f);
+        Entity ch47X = new Entity(texturedCh7, new Vector3f(120,0,-126), 0f,180f,0f,0.3f);
+        Entity ch48X = new Entity(texturedCh8, new Vector3f(120,0,-127), 0f,180f,0f,0.3f);
+        Entity ch49X = new Entity(texturedCh9, new Vector3f(120,0,-128), 0f,180f,0f,0.3f);
+        Entity ch50X = new Entity(texturedCh10, new Vector3f(120,0,-129), 0f,180f,0f,0.3f);
+        Entity ch51X = new Entity(texturedCh11, new Vector3f(120,0,-130), 0f,180f,0f,0.3f);
+
+        Entity ch61X = new Entity(texturedCh1, new Vector3f(120,0,-130), 0f,90f,0f,0.3f);
+        Entity ch62X = new Entity(texturedCh2, new Vector3f(121,0,-130), 0f,90f,0f,0.3f);
+        Entity ch63X = new Entity(texturedCh3, new Vector3f(122,0,-130), 0f,90f,0f,0.3f);
+        Entity ch64X = new Entity(texturedCh4, new Vector3f(123,0,-130), 0f,90f,0f,0.3f);
+        Entity ch65X = new Entity(texturedCh5, new Vector3f(124,0,-130), 0f,90f,0f,0.3f);
+        Entity ch66X = new Entity(texturedCh6, new Vector3f(125,0,-130), 0f,90f,0f,0.3f);
+        Entity ch67X = new Entity(texturedCh7, new Vector3f(126,0,-130), 0f,90f,0f,0.3f);
+        Entity ch68X = new Entity(texturedCh8, new Vector3f(127,0,-130), 0f,90f,0f,0.3f);
+        Entity ch69X = new Entity(texturedCh9, new Vector3f(128,0,-130), 0f,90f,0f,0.3f);
+        Entity ch70X = new Entity(texturedCh10, new Vector3f(129,0,-130), 0f,90f,0f,0.3f);
+        Entity ch71X = new Entity(texturedCh11, new Vector3f(130,0,-130), 0f,90f,0f,0.3f);
 
 
         int number = 1;
@@ -268,37 +304,59 @@ public class MainGameLoop {
             renderer.processEntity(gateEntity);
             renderer.processEntity(towerEntity);
 
-            if(frame%10==0){
+            if(frame%7==0){
 
                 number=number+1;
             }
 
-            if(number==1){
-                renderer.processEntity(ch1X);
-            }else if (number==2){
-                renderer.processEntity(ch2X);
-            }else if (number==3){
-                renderer.processEntity(ch3X);
-            }else if (number==4){
-                renderer.processEntity(ch4X);
-            }else if (number==5){
-                renderer.processEntity(ch5X);
-            }else if (number==6){
-                renderer.processEntity(ch6X);
-            }else if (number==7){
-                renderer.processEntity(ch7X);
-            }else if (number==8){
-                renderer.processEntity(ch8X);
-            }else if (number==9){
-                renderer.processEntity(ch9X);
-            }else if (number==10){
-                renderer.processEntity(ch10X);
-            }else if (number==11){
-                renderer.processEntity(ch11X);
-            }
+            if(number==1) renderer.processEntity(ch1X);
+            else if (number==2) renderer.processEntity(ch2X);
+            else if (number==3) renderer.processEntity(ch3X);
+            else if (number==4) renderer.processEntity(ch4X);
+            else if (number==5) renderer.processEntity(ch5X);
+            else if (number==6) renderer.processEntity(ch6X);
+            else if (number==7) renderer.processEntity(ch7X);
+            else if (number==8) renderer.processEntity(ch8X);
+            else if (number==9) renderer.processEntity(ch9X);
+            else if (number==10) renderer.processEntity(ch10X);
+            else if (number==11) renderer.processEntity(ch11X);
+            else if (number==12) renderer.processEntity(ch21X);
+            else if (number==13) renderer.processEntity(ch22X);
+            else if (number==14) renderer.processEntity(ch23X);
+            else if (number==15) renderer.processEntity(ch24X);
+            else if (number==16) renderer.processEntity(ch25X);
+            else if (number==17) renderer.processEntity(ch26X);
+            else if (number==18) renderer.processEntity(ch27X);
+            else if (number==19) renderer.processEntity(ch28X);
+            else if (number==20) renderer.processEntity(ch29X);
+            else if (number==21) renderer.processEntity(ch30X);
+            else if (number==22) renderer.processEntity(ch31X);
+            else if (number==23) renderer.processEntity(ch41X);
+            else if (number==24) renderer.processEntity(ch42X);
+            else if (number==25) renderer.processEntity(ch43X);
+            else if (number==26) renderer.processEntity(ch44X);
+            else if (number==27) renderer.processEntity(ch45X);
+            else if (number==28) renderer.processEntity(ch46X);
+            else if (number==29) renderer.processEntity(ch47X);
+            else if (number==30) renderer.processEntity(ch48X);
+            else if (number==31) renderer.processEntity(ch49X);
+            else if (number==32) renderer.processEntity(ch50X);
+            else if (number==33) renderer.processEntity(ch51X);
+            else if (number==34) renderer.processEntity(ch61X);
+            else if (number==35) renderer.processEntity(ch62X);
+            else if (number==36) renderer.processEntity(ch63X);
+            else if (number==37) renderer.processEntity(ch64X);
+            else if (number==38) renderer.processEntity(ch65X);
+            else if (number==39) renderer.processEntity(ch66X);
+            else if (number==40) renderer.processEntity(ch67X);
+            else if (number==41) renderer.processEntity(ch68X);
+            else if (number==42) renderer.processEntity(ch69X);
+            else if (number==43) renderer.processEntity(ch70X);
+            else if (number==44) renderer.processEntity(ch71X);
+
 
             frame=frame+1;
-            if(number==11) number = 1;
+            if(number==44) number = 1;
 //            renderer.processEntity(ch1X);
 //            //sleep(0.1);
 //            renderer.processEntity(ch2X);
