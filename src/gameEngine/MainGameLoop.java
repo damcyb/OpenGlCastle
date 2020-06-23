@@ -1,6 +1,7 @@
 package gameEngine;
 
 import entities.Camera;
+import entities.Door;
 import entities.Entity;
 import entities.Light;
 import guis.GuiRenderer;
@@ -13,6 +14,7 @@ import renderEngine.*;
 import models.RawModel;
 import terrains.Terrain;
 import textures.ModelTexture;
+import toolbox.TerrainCoordinatesLottery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +26,14 @@ import static org.lwjgl.opengl.GL14.glBlendFuncSeparate;
 
 public class MainGameLoop {
 
+    public static boolean gateAction = false;
+
     public static void main(String[] args) {
 
         Window window = new Window(1920, 1000, "Test");
         Loader loader = new Loader();
+
+        TerrainCoordinatesLottery lottery = new TerrainCoordinatesLottery();
 
         float angle = 0.0f;
 
@@ -77,8 +83,8 @@ public class MainGameLoop {
 //        texturedWall.getTexture().setReflectivity(2);
 
         //gate
-        RawModel gate = OBJLoader.loadOBJModel("gate", loader);
-        ModelTexture textureGate = loader.loadTexture("gate4");
+        RawModel gate = OBJLoader.loadOBJModel("gate2", loader);
+        ModelTexture textureGate = loader.loadTexture("iron gate");
         TexturedModel texturedGate = new TexturedModel(gate, textureGate);
 
         RawModel tower = OBJLoader.loadOBJModel("castleD4converted", loader);
@@ -122,7 +128,7 @@ public class MainGameLoop {
         //Light light = new Light(new Vector3f(0,1000,100), new Vector3f(1f,1f,1f));
         List<Light> lights = new ArrayList<Light>();
         lights.add(light);
-        lights.add(new Light(new Vector3f(-5, 0.3f, -130), new Vector3f(2,2,0), new Vector3f(1, 0.01f, 0.002f)));
+        lights.add(new Light(new Vector3f(-5, 0f, -130), new Vector3f(0.5f,0.5f,0), new Vector3f(0.01f, 0.01f, 0.002f)));
         //lights.add(new Light(new Vector3f(-200, 10,-200), new Vector3f(10,0,0)));
         //lights.add(new Light(new Vector3f(200, 10,200), new Vector3f(0,0,10)));
         //Light light2 = new Light(new Vector3f(0,1000,-100), new Vector3f(0.8f,0.8f,0.8f));
@@ -137,18 +143,21 @@ public class MainGameLoop {
 
         List<Entity> allObjects = new ArrayList<>();
 
-        for (int i = 0; i < 500; i++) {
-            float x = random.nextFloat() * 100 - 50;
-            float y = random.nextFloat() * 100 - 50;
-            float z = random.nextFloat() * 100 - 50;
+        for (int i = 0; i < 800; i++) {
+            float x = random.nextFloat() * 500 - 50;
+//            float y = random.nextFloat() * 100 - 50;
+//            float z = random.nextFloat() * 100 - 50;
             allObjects.add(new Entity(texturedTree,
-                    new Vector3f(random.nextFloat() * 500 - 100,0,random.nextFloat() * -200),
+                    new Vector3f(x,0,lottery.randomZCoordinate(x, i)),
                     0f, 0f, 0f, 0.2f));
+
+            x = random.nextFloat() * 500 - 50;
             allObjects.add(new Entity(grass,
-                    new Vector3f(random.nextFloat() * 500 - 100,0,random.nextFloat() * -200),
+                    new Vector3f(x,0,lottery.randomZCoordinate(x, i)),
                     0f, 0f, 0f, 0.5f));
+            x = random.nextFloat() * 500 - 50;
             allObjects.add(new Entity(fern,
-                    new Vector3f(random.nextFloat() * 500 - 100,0,random.nextFloat() * -200),
+                    new Vector3f(x,0,lottery.randomZCoordinate(x, i)),
                     0f, 0f, 0f, 0.2f));
         }
 
@@ -157,8 +166,8 @@ public class MainGameLoop {
                 0f, 0f, 0f, 0.8f);
 
         Entity gateEntity = new Entity(texturedGate,
-                new Vector3f(64,0,-133),
-                0f, 0f, 0f, 5f);
+                new Vector3f(100,1.2f,-133),
+                0f, 0f, 0f, 1f);
 
         Entity towerEntity = new Entity(texturedTower,
                 new Vector3f(74,4.5f,-133),
@@ -183,9 +192,17 @@ public class MainGameLoop {
 
         while(!window.isClosed()) {
 
-            cameraLight.setPosition(camera.getPosition());
+            //cameraLight.setPosition(camera.getPosition());
             //window.clearFrameBuffer();
-            //entity.increasePosition(0, 0,-0.01f);
+
+            if(gateAction) {
+                gateEntity.increasePosition(0, (float)Math.sin(Math.toRadians(angle)) /50,0f);
+                if (angle % 360 == 179 || angle % 360 == 359) {
+                    gateAction = false;
+                }
+                angle++;
+            }
+
             renderer.processTerrain(terrain);
             renderer.processTerrain(terrain2);
             //entity.increaseRotation(0,1,0);
@@ -193,15 +210,13 @@ public class MainGameLoop {
                 renderer.processEntity(object);
             }
 
-            renderer.processEntity(houseX);
-            renderer.processEntity(gateEntity);
             renderer.processEntity(horseX);
             renderer.processEntity(lanternX);
 
             renderer.processEntity(pavementEntity);
             renderer.processEntity(pennantEntity);
             renderer.processEntity(houseX);
-            //renderer.processEntity(gateEntity);
+            renderer.processEntity(gateEntity);
             renderer.processEntity(towerEntity);
             //gateEntity.increaseRotation(0f, 0.5f, 0f);
 

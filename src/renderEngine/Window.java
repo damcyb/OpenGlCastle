@@ -2,6 +2,7 @@ package renderEngine;
 
 import entities.Camera;
 import entities.Door;
+import gameEngine.MainGameLoop;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -94,6 +95,9 @@ public class Window {
                 glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
             else {
                 Camera.move(key);
+                if (key == GLFW_KEY_SPACE) {
+                    MainGameLoop.gateAction = true;
+                }
                 //Door.openDoor(key);
             }
         });
