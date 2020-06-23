@@ -10,7 +10,7 @@ import java.util.List;
 
 public class StaticShader extends ShaderProgram{
 
-    private static final int MAX_LIGHTS = 4;
+    private static final int MAX_LIGHTS = 6;
 
     private static final String VERTEX_FILE = "src/shaders/vertexShader.txt";
     private static final String FRAGMENT_FILE = "src/shaders/fragmentShader.txt";
@@ -18,9 +18,9 @@ public class StaticShader extends ShaderProgram{
     private int locationTransformationMatrix;
     private int locationProjectionMatrix;
     private int locationViewMatrix;
-    private int locationLightPosition[];
-    private int locationLightColor[];
-    private int locationAttenuation[];
+    private int[] locationLightPosition;
+    private int[] locationLightColor;
+    private int[] locationAttenuation;
     private int locationShineDamper;
     private int locationReflectivity;
     private int locationUseFakeLightning;

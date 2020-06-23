@@ -231,13 +231,17 @@ public class MainGameLoop {
 
         //Entity entity = new Entity(texturedTree, new Vector3f(0,0,-25),0,0,0,1);
 
-        Light light = new Light(new Vector3f(1000,1000,1000), new Vector3f(0.7f,0.7f,0.7f));
+        Light light = new Light(new Vector3f(1000,1000,1000), new Vector3f(0.5f,0.5f,0.5f));
 
         //Light light = new Light(new Vector3f(0,1000,100), new Vector3f(1f,1f,1f));
         List<Light> lights = new ArrayList<Light>();
         lights.add(light);
 
-        lights.add(new Light(new Vector3f(62, 0.3f, -118), new Vector3f(0.5f,0.25f,0), new Vector3f(1.5f, 0.01f, 0.002f)));
+        lights.add(new Light(new Vector3f(62, 0.3f, -118), new Vector3f(0.4f,0.2f,0), new Vector3f(2f, 0.01f, 0.002f)));
+        lights.add(new Light(new Vector3f(95, 0.3f, -118), new Vector3f(0.4f,0.2f,0), new Vector3f(2f, 0.01f, 0.002f)));
+        lights.add(new Light(new Vector3f(69, 0.3f, -145), new Vector3f(0.4f,0.2f,0), new Vector3f(2f, 0.01f, 0.002f)));
+        lights.add(new Light(new Vector3f(98, 0.3f, -145), new Vector3f(0.4f,0.2f,0), new Vector3f(2.5f, 0.01f, 0.002f)));
+        lights.add(new Light(new Vector3f(49, 0.3f, -125), new Vector3f(0.4f,0.2f,0), new Vector3f(2f, 0.01f, 0.002f)));
 
         //lights.add(new Light(new Vector3f(-200, 10,-200), new Vector3f(10,0,0)));
         //lights.add(new Light(new Vector3f(200, 10,200), new Vector3f(0,0,10)));
@@ -421,9 +425,11 @@ public class MainGameLoop {
 
         //gateEntity.translate(0.0f, 0.0f, 2f);
 
-        Entity lanternX = new Entity(texturedLantern,
-                new Vector3f(62,0,-118),
-                0f,0f,0f,1f);
+        Entity lanternStable = new Entity(texturedLantern, new Vector3f(62,0,-118),0f,0f,0f,1f);
+        Entity lanternBarrack = new Entity(texturedLantern, new Vector3f(95,0,-118),0f,0f,0f,1f);
+        Entity lanternBackHouse = new Entity(texturedLantern, new Vector3f(69,0,-145),0f,0f,0f,1f);
+        Entity lanternFrontHouse = new Entity(texturedLantern, new Vector3f(98,0,-145),0f,0f,0f,1f);
+        Entity lanternInside = new Entity(texturedLantern, new Vector3f(49,0,-125),0f,0f,0f,1f);
 
         int number = 1;
         int frame=0;
@@ -478,7 +484,11 @@ public class MainGameLoop {
                 renderer.processEntity(object);
             }
 
-            renderer.processEntity(lanternX);
+            renderer.processEntity(lanternStable);
+            renderer.processEntity(lanternBarrack);
+            renderer.processEntity(lanternBackHouse);
+            renderer.processEntity(lanternFrontHouse);
+            renderer.processEntity(lanternInside);
             renderer.processEntity(medievalHouseEntity);
             renderer.processEntity(medievalHouseEntity2);
             renderer.processEntity(medievalHouseEntity3);
