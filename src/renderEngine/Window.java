@@ -1,20 +1,15 @@
 package renderEngine;
 
 import entities.Camera;
-import entities.Door;
 import gameEngine.MainGameLoop;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL11C;
-import org.lwjgl.opengl.GL13;
 import org.lwjgl.system.MemoryStack;
 
 import java.nio.IntBuffer;
 
-import static java.lang.Boolean.FALSE;
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.glfw.GLFW.glfwShowWindow;
@@ -33,29 +28,7 @@ public class Window {
     public Window(int width, int height, String title) {
         this.width = width;
         this.height = height;
-        this.
-                title = title;
-    }
-
-    public void create() {
-        if(!GLFW.glfwInit()) {
-            System.err.println("Error: cannot initialize GLFW");
-            System.exit(-1);
-        }
-
-        GLFW.glfwWindowHint(GLFW.GLFW_VISIBLE, GLFW.GLFW_FALSE);
-        GLFW.glfwWindowHint(GLFW.GLFW_RESIZABLE, GLFW.GLFW_FALSE);
-        window = GLFW.glfwCreateWindow(width, height, title,0,0 );
-
-        if(window == 0) {
-            System.err.println("Error: window could not be created");
-            System.exit(-1);
-        }
-
-        GLFWVidMode videoMode = GLFW.glfwGetVideoMode(GLFW.glfwGetPrimaryMonitor());
-        GLFW.glfwSetWindowPos(window, videoMode.width() - width / 2, videoMode.height() - height / 2);
-
-        GLFW.glfwShowWindow(window);
+        this.title = title;
     }
 
     public boolean isClosed() {
@@ -101,7 +74,6 @@ public class Window {
                 if (key == GLFW_KEY_LEFT_CONTROL) {
                     MainGameLoop.fortressGateAction = true;
                 }
-                //Door.openDoor(key);
             }
         });
 

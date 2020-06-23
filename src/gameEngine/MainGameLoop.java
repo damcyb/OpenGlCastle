@@ -1,12 +1,8 @@
 package gameEngine;
 
 import entities.Camera;
-import entities.Door;
 import entities.Entity;
 import entities.Light;
-import guis.GuiRenderer;
-import guis.GuiTexture;
-import models.TestModel;
 import models.TexturedModel;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector3f;
@@ -43,13 +39,6 @@ public class MainGameLoop {
 
         window.init();
         window.createCapabilities();
-
-        GL11.glEnable(GL_BLEND);
-        GL11.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glAlphaFunc(GL_GREATER, 0.5f);
-        glEnable(GL_ALPHA_TEST);
-        glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
-        glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE);
 
         //animation
         //character
@@ -230,8 +219,7 @@ public class MainGameLoop {
         //Entity entity = new Entity(texturedTree, new Vector3f(0,0,-25),0,0,0,1);
 
         Light light = new Light(new Vector3f(1000,1000,1000), new Vector3f(0.5f,0.5f,0.5f));
-
-        //Light light = new Light(new Vector3f(0,1000,100), new Vector3f(1f,1f,1f));
+        
         List<Light> lights = new ArrayList<Light>();
         lights.add(light);
 
@@ -241,14 +229,8 @@ public class MainGameLoop {
         lights.add(new Light(new Vector3f(98, 0.3f, -145), new Vector3f(0.4f,0.2f,0), new Vector3f(2.5f, 0.01f, 0.002f)));
         lights.add(new Light(new Vector3f(49, 0.3f, -125), new Vector3f(0.4f,0.2f,0), new Vector3f(2f, 0.01f, 0.002f)));
 
-        lights.add(new Light(new Vector3f(52, 0,-130), new Vector3f(0.5f,0.25f,0), new Vector3f(1.5f, 0.01f, 0.002f)));
-        //lights.add(new Light(new Vector3f(200, 10,200), new Vector3f(0,0,10)));
-        //Light light2 = new Light(new Vector3f(0,1000,-100), new Vector3f(0.8f,0.8f,0.8f));
-
         Camera camera = new Camera();
         camera.setPosition(new Vector3f(132, 2, -140));
-
-        Light cameraLight = new Light(camera.getPosition(), new Vector3f(1,1,1));
 
         MasterRenderer renderer = new MasterRenderer(window, loader);
         Random random = new Random();

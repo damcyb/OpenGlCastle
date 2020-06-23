@@ -1,7 +1,5 @@
 package toolbox;
 
-import org.lwjgl.util.vector.Vector3f;
-
 import java.util.Random;
 
 public class TerrainCoordinatesLottery {
