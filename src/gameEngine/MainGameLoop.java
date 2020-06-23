@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static java.lang.Thread.sleep;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL13.GL_SAMPLE_ALPHA_TO_COVERAGE;
 import static org.lwjgl.opengl.GL14.glBlendFuncSeparate;
@@ -46,6 +47,35 @@ public class MainGameLoop {
         glEnable(GL_ALPHA_TEST);
         glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
         glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE);
+
+        //animation
+        //character
+        RawModel ch1 = OBJLoader.loadOBJModel("character_animation/ch1", loader);
+        ModelTexture textureCh1 = loader.loadTexture("character_animation/Character Texture");
+        TexturedModel texturedCh1 = new TexturedModel(ch1, textureCh1);
+
+        RawModel ch2 = OBJLoader.loadOBJModel("character_animation/ch2", loader);
+        TexturedModel texturedCh2 = new TexturedModel(ch2, textureCh1);
+
+        RawModel ch3 = OBJLoader.loadOBJModel("character_animation/ch3", loader);
+        TexturedModel texturedCh3 = new TexturedModel(ch3, textureCh1);
+        RawModel ch4 = OBJLoader.loadOBJModel("character_animation/ch4", loader);
+        TexturedModel texturedCh4 = new TexturedModel(ch4, textureCh1);
+        RawModel ch5 = OBJLoader.loadOBJModel("character_animation/ch5", loader);
+        TexturedModel texturedCh5 = new TexturedModel(ch5, textureCh1);
+        RawModel ch6 = OBJLoader.loadOBJModel("character_animation/ch6", loader);
+        TexturedModel texturedCh6 = new TexturedModel(ch6, textureCh1);
+        RawModel ch7 = OBJLoader.loadOBJModel("character_animation/ch7", loader);
+        TexturedModel texturedCh7 = new TexturedModel(ch7, textureCh1);
+        RawModel ch8 = OBJLoader.loadOBJModel("character_animation/ch8", loader);
+        TexturedModel texturedCh8 = new TexturedModel(ch8, textureCh1);
+        RawModel ch9 = OBJLoader.loadOBJModel("character_animation/ch9", loader);
+        TexturedModel texturedCh9 = new TexturedModel(ch9, textureCh1);
+        RawModel ch10 = OBJLoader.loadOBJModel("character_animation/ch10", loader);
+        TexturedModel texturedCh10 = new TexturedModel(ch10, textureCh1);
+        RawModel ch11 = OBJLoader.loadOBJModel("character_animation/ch11", loader);
+        TexturedModel texturedCh11 = new TexturedModel(ch11, textureCh1);
+
 
         /////////////////
         //horse
@@ -190,6 +220,25 @@ public class MainGameLoop {
                 new Vector3f(-5,0,-130),
                 0f,0f,0f,1f);
 
+        //animation
+        Entity ch1X = new Entity(texturedCh1, new Vector3f(130,0,-130), 0f,0f,0f,0.5f);
+
+        Entity ch2X = new Entity(texturedCh2, new Vector3f(130,0,-129), 0f,0f,0f,0.5f);
+
+        Entity ch3X = new Entity(texturedCh3, new Vector3f(130,0,-128), 0f,0f,0f,0.5f);
+        Entity ch4X = new Entity(texturedCh4, new Vector3f(130,0,-127), 0f,0f,0f,0.5f);
+        Entity ch5X = new Entity(texturedCh5, new Vector3f(130,0,-126), 0f,0f,0f,0.5f);
+        Entity ch6X = new Entity(texturedCh6, new Vector3f(130,0,-125), 0f,0f,0f,0.5f);
+        Entity ch7X = new Entity(texturedCh7, new Vector3f(130,0,-124), 0f,0f,0f,0.5f);
+        Entity ch8X = new Entity(texturedCh8, new Vector3f(130,0,-123), 0f,0f,0f,0.5f);
+        Entity ch9X = new Entity(texturedCh9, new Vector3f(130,0,-122), 0f,0f,0f,0.5f);
+        Entity ch10X = new Entity(texturedCh10, new Vector3f(130,0,-121), 0f,0f,0f,0.5f);
+        Entity ch11X = new Entity(texturedCh11, new Vector3f(130,0,-120), 0f,0f,0f,0.5f);
+
+
+        int number = 1;
+        int frame=0;
+
         while(!window.isClosed()) {
 
             //cameraLight.setPosition(camera.getPosition());
@@ -218,6 +267,42 @@ public class MainGameLoop {
             renderer.processEntity(houseX);
             renderer.processEntity(gateEntity);
             renderer.processEntity(towerEntity);
+
+            if(frame%10==0){
+
+                number=number+1;
+            }
+
+            if(number==1){
+                renderer.processEntity(ch1X);
+            }else if (number==2){
+                renderer.processEntity(ch2X);
+            }else if (number==3){
+                renderer.processEntity(ch3X);
+            }else if (number==4){
+                renderer.processEntity(ch4X);
+            }else if (number==5){
+                renderer.processEntity(ch5X);
+            }else if (number==6){
+                renderer.processEntity(ch6X);
+            }else if (number==7){
+                renderer.processEntity(ch7X);
+            }else if (number==8){
+                renderer.processEntity(ch8X);
+            }else if (number==9){
+                renderer.processEntity(ch9X);
+            }else if (number==10){
+                renderer.processEntity(ch10X);
+            }else if (number==11){
+                renderer.processEntity(ch11X);
+            }
+
+            frame=frame+1;
+            if(number==11) number = 1;
+//            renderer.processEntity(ch1X);
+//            //sleep(0.1);
+//            renderer.processEntity(ch2X);
+//            renderer.processEntity(ch3X);
             //gateEntity.increaseRotation(0f, 0.5f, 0f);
 
             //renderer.processEntity(wallA);
