@@ -177,6 +177,7 @@ public class MainGameLoop {
         RawModel hay = OBJLoader.loadOBJModel("hayConverted", loader);
         ModelTexture textureHay = loader.loadTexture("hay");
         TexturedModel texturedHay = new TexturedModel(hay, textureHay);
+
 //        texturedHay.getTexture().setShineDamper(2);
 //        texturedHay.getTexture().setReflectivity(1);
 
@@ -203,13 +204,13 @@ public class MainGameLoop {
         Terrain terrain2 = new Terrain(1,0, loader, new ModelTexture(loader.loadTexture("grass").getId()));
 
         //Entity entity = new Entity(texturedTree, new Vector3f(0,0,-25),0,0,0,1);
-        Light light = new Light(new Vector3f(1000,1000,1000), new Vector3f(0.8f,0.8f,0.8f));
+        Light light = new Light(new Vector3f(1000,1000,1000), new Vector3f(0.7f,0.7f,0.7f));
 
 
         //Light light = new Light(new Vector3f(0,1000,100), new Vector3f(1f,1f,1f));
         List<Light> lights = new ArrayList<Light>();
         lights.add(light);
-        lights.add(new Light(new Vector3f(-5, 0f, -130), new Vector3f(0.5f,0.5f,0), new Vector3f(0.01f, 0.01f, 0.002f)));
+        lights.add(new Light(new Vector3f(62, 0.3f, -118), new Vector3f(0.5f,0.25f,0), new Vector3f(1.5f, 0.01f, 0.002f)));
         //lights.add(new Light(new Vector3f(-200, 10,-200), new Vector3f(10,0,0)));
         //lights.add(new Light(new Vector3f(200, 10,200), new Vector3f(0,0,10)));
         //Light light2 = new Light(new Vector3f(0,1000,-100), new Vector3f(0.8f,0.8f,0.8f));
@@ -339,12 +340,9 @@ public class MainGameLoop {
                 0f, -90f, -0f, 0.004f);
 
         //gateEntity.translate(0.0f, 0.0f, 2f);
-        Entity horseX = new Entity(texturedHorse,
-                new Vector3f(0,2,-130),
-                0f,0f,0f,0.01f);
 
         Entity lanternX = new Entity(texturedLantern,
-                new Vector3f(-5,0,-130),
+                new Vector3f(62,0,-118),
                 0f,0f,0f,1f);
 
         int number = 1;
@@ -383,7 +381,6 @@ public class MainGameLoop {
                 renderer.processEntity(object);
             }
 
-            renderer.processEntity(horseX);
             renderer.processEntity(lanternX);
             renderer.processEntity(medievalHouseEntity);
             renderer.processEntity(medievalHouseEntity2);
