@@ -1,0 +1,45 @@
+# Blender MTL File: 'stable.blend'
+# Material Count: 4
+
+newmtl 01___Default.001
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588200 0.588200 0.588200
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+
+newmtl Material__46.001
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd D:\\blenderObjects\\stable\\Stable.fbm\\4914.jpg
+
+newmtl Material__72.001
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd D:\\blenderObjects\\stable\\Stable.fbm\\MADEIRA3.tga
+
+newmtl Material__73.001
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd D:\\blenderObjects\\stable\\Stable.fbm\\MADEIRA1.tga

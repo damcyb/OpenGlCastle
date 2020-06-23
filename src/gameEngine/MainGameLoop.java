@@ -154,6 +154,12 @@ public class MainGameLoop {
 //        texturedHay.getTexture().setShineDamper(2);
 //        texturedHay.getTexture().setReflectivity(1);
 
+        RawModel stable = OBJLoader.loadOBJModel("stable", loader);
+        ModelTexture textureStable = loader.loadTexture("wood2");
+        TexturedModel texturedStable = new TexturedModel(stable, textureStable);
+        texturedStable.getTexture().setShineDamper(2);
+        texturedStable.getTexture().setReflectivity(1);
+
         //grass
         TexturedModel grass = new TexturedModel(OBJLoader.loadOBJModel("grassModel", loader),
                 new ModelTexture(loader.loadTexture("grassTexture2").getId()));
@@ -294,6 +300,18 @@ public class MainGameLoop {
                 new Vector3f(99.5f, 0f, -140),
                 0f, 0f, -0f, 1f);
 
+        Entity stableEntity = new Entity(texturedStable,
+                new Vector3f(70f, 0.1f, -118.5f),
+                0f, 180f, -0f, 0.4f);
+
+        Entity stableHorse = new Entity(texturedHorse,
+                new Vector3f(71f, 1f, -118.1f),
+                0f, -90f, -0f, 0.004f);
+
+        Entity stableHorse2 = new Entity(texturedHorse,
+                new Vector3f(67f, 1f, -118.1f),
+                0f, -90f, -0f, 0.004f);
+
         //gateEntity.translate(0.0f, 0.0f, 2f);
         Entity horseX = new Entity(texturedHorse,
                 new Vector3f(0,2,-130),
@@ -351,6 +369,9 @@ public class MainGameLoop {
             renderer.processEntity(fortressGateEntity);
             renderer.processEntity(towerEntity);
             renderer.processEntity(rainProtectionEntity);
+            renderer.processEntity(stableEntity);
+            renderer.processEntity(stableHorse);
+            renderer.processEntity(stableHorse2);
             //renderer.processEntity(hayEntity);
             //gateEntity.increaseRotation(0f, 0.5f, 0f);
 
