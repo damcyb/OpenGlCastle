@@ -49,6 +49,32 @@ public class MainGameLoop {
         glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
         glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE);
 
+        //animation
+        //character
+        RawModel ch1 = OBJLoader.loadOBJModel("character_animation/ch1", loader);
+        ModelTexture textureCh1 = loader.loadTexture("character_animation/Character Texture");
+        TexturedModel texturedCh1 = new TexturedModel(ch1, textureCh1);
+        RawModel ch2 = OBJLoader.loadOBJModel("character_animation/ch2", loader);
+        TexturedModel texturedCh2 = new TexturedModel(ch2, textureCh1);
+        RawModel ch3 = OBJLoader.loadOBJModel("character_animation/ch3", loader);
+        TexturedModel texturedCh3 = new TexturedModel(ch3, textureCh1);
+        RawModel ch4 = OBJLoader.loadOBJModel("character_animation/ch4", loader);
+        TexturedModel texturedCh4 = new TexturedModel(ch4, textureCh1);
+        RawModel ch5 = OBJLoader.loadOBJModel("character_animation/ch5", loader);
+        TexturedModel texturedCh5 = new TexturedModel(ch5, textureCh1);
+        RawModel ch6 = OBJLoader.loadOBJModel("character_animation/ch6", loader);
+        TexturedModel texturedCh6 = new TexturedModel(ch6, textureCh1);
+        RawModel ch7 = OBJLoader.loadOBJModel("character_animation/ch7", loader);
+        TexturedModel texturedCh7 = new TexturedModel(ch7, textureCh1);
+        RawModel ch8 = OBJLoader.loadOBJModel("character_animation/ch8", loader);
+        TexturedModel texturedCh8 = new TexturedModel(ch8, textureCh1);
+        RawModel ch9 = OBJLoader.loadOBJModel("character_animation/ch9", loader);
+        TexturedModel texturedCh9 = new TexturedModel(ch9, textureCh1);
+        RawModel ch10 = OBJLoader.loadOBJModel("character_animation/ch10", loader);
+        TexturedModel texturedCh10 = new TexturedModel(ch10, textureCh1);
+        RawModel ch11 = OBJLoader.loadOBJModel("character_animation/ch11", loader);
+        TexturedModel texturedCh11 = new TexturedModel(ch11, textureCh1);
+
         /////////////////
         //horse
         RawModel horse = OBJLoader.loadOBJModel("horse", loader);
@@ -321,6 +347,9 @@ public class MainGameLoop {
                 new Vector3f(-5,0,-130),
                 0f,0f,0f,1f);
 
+        int number = 1;
+        int frame=0;
+
         while(!window.isClosed()) {
 
             if(gateAction) {
@@ -374,6 +403,190 @@ public class MainGameLoop {
             renderer.processEntity(stableHorse2);
             //renderer.processEntity(hayEntity);
             //gateEntity.increaseRotation(0f, 0.5f, 0f);
+
+
+            if(frame%7==0){
+                number=number+1;
+            }
+
+            if(number==1) {
+                renderer.processEntity(new Entity(texturedCh1, new Vector3f(80,0,-140f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh1, new Vector3f(75f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==2) {
+                renderer.processEntity(new Entity(texturedCh2, new Vector3f(80,0,-139.5f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh2, new Vector3f(75.5f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==3) {
+                renderer.processEntity(new Entity(texturedCh3, new Vector3f(80,0,-139f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh3, new Vector3f(76f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==4) {
+                renderer.processEntity(new Entity(texturedCh4, new Vector3f(80,0,-138.5f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh4, new Vector3f(76.5f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==5) {
+                renderer.processEntity(new Entity(texturedCh5, new Vector3f(80,0,-138f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh5, new Vector3f(77f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==6) {
+                renderer.processEntity(new Entity(texturedCh6, new Vector3f(80,0,-137.5f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh6, new Vector3f(77.5f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==7) {
+                renderer.processEntity(new Entity(texturedCh7, new Vector3f(80,0,-137f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh7, new Vector3f(78f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==8) {
+                renderer.processEntity(new Entity(texturedCh8, new Vector3f(80,0,-136.5f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh8, new Vector3f(78.5f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==9) {
+                renderer.processEntity(new Entity(texturedCh9, new Vector3f(80,0,-136f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh9, new Vector3f(79f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==10) {
+                renderer.processEntity(new Entity(texturedCh10, new Vector3f(80,0,-135.5f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh10, new Vector3f(79.5f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==11) {
+                renderer.processEntity(new Entity(texturedCh11, new Vector3f(80,0,-135f), 0f,0f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh11, new Vector3f(80f,0,-140), 0f,90f,0f,0.15f));
+            }
+            else if (number==12) {
+                renderer.processEntity(new Entity(texturedCh1, new Vector3f(80f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh1, new Vector3f(80,0,-140f), 0f,0f,0f,0.15f));
+            }
+            else if (number==13) {
+                renderer.processEntity(new Entity(texturedCh2, new Vector3f(79.5f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh2, new Vector3f(80,0,-139.5f), 0f,0f,0f,0.15f));
+            }
+            else if (number==14) {
+                renderer.processEntity(new Entity(texturedCh3, new Vector3f(79f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh3, new Vector3f(80,0,-139f), 0f,0f,0f,0.15f));
+            }
+            else if (number==15) {
+                renderer.processEntity(new Entity(texturedCh4, new Vector3f(78.5f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh4, new Vector3f(80,0,-138.5f), 0f,0f,0f,0.15f));
+            }
+            else if (number==16) {
+                renderer.processEntity(new Entity(texturedCh5, new Vector3f(78f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh5, new Vector3f(80,0,-138f), 0f,0f,0f,0.15f));
+            }
+            else if (number==17) {
+                renderer.processEntity(new Entity(texturedCh6, new Vector3f(77.5f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh6, new Vector3f(80,0,-137.5f), 0f,0f,0f,0.15f));
+            }
+            else if (number==18) {
+                renderer.processEntity(new Entity(texturedCh7, new Vector3f(77f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh7, new Vector3f(80,0,-137f), 0f,0f,0f,0.15f));
+            }
+            else if (number==19) {
+                renderer.processEntity(new Entity(texturedCh8, new Vector3f(76.5f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh8, new Vector3f(80,0,-136.5f), 0f,0f,0f,0.15f));
+            }
+            else if (number==20) {
+                renderer.processEntity(new Entity(texturedCh9, new Vector3f(76f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh9, new Vector3f(80,0,-136f), 0f,0f,0f,0.15f));
+            }
+            else if (number==21) {
+                renderer.processEntity(new Entity(texturedCh10, new Vector3f(75.5f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh10, new Vector3f(80,0,-135.5f), 0f,0f,0f,0.15f));
+            }
+            else if (number==22) {
+                renderer.processEntity(new Entity(texturedCh11, new Vector3f(75f,0,-135), 0f,-90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh11, new Vector3f(80,0,-135f), 0f,0f,0f,0.15f));
+            }
+            else if (number==23) {
+                renderer.processEntity(new Entity(texturedCh1, new Vector3f(75,0,-135f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh1, new Vector3f(80f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==24) {
+                renderer.processEntity(new Entity(texturedCh2, new Vector3f(75,0,-135.5f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh2, new Vector3f(79.5f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==25) {
+                renderer.processEntity(new Entity(texturedCh3, new Vector3f(75,0,-136f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh3, new Vector3f(79f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==26) {
+                renderer.processEntity(new Entity(texturedCh4, new Vector3f(75,0,-136.5f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh4, new Vector3f(78.5f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==27) {
+                renderer.processEntity(new Entity(texturedCh5, new Vector3f(75,0,-137f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh5, new Vector3f(78f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==28) {
+                renderer.processEntity(new Entity(texturedCh6, new Vector3f(75,0,-137.5f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh6, new Vector3f(77.5f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==29) {
+                renderer.processEntity(new Entity(texturedCh7, new Vector3f(75,0,-138f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh7, new Vector3f(77f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==30) {
+                renderer.processEntity(new Entity(texturedCh8, new Vector3f(75,0,-138.5f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh8, new Vector3f(76.5f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==31) {
+                renderer.processEntity(new Entity(texturedCh9, new Vector3f(75,0,-139f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh9, new Vector3f(76f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==32) {
+                renderer.processEntity(new Entity(texturedCh10, new Vector3f(75,0,-139.5f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh10, new Vector3f(75.5f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==33) {
+                renderer.processEntity(new Entity(texturedCh11, new Vector3f(75,0,-140f), 0f,180f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh11, new Vector3f(75f,0,-135), 0f,-90f,0f,0.15f));
+            }
+            else if (number==34) {
+                renderer.processEntity(new Entity(texturedCh1, new Vector3f(75f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh1, new Vector3f(75,0,-135f), 0f,180f,0f,0.15f));
+            }
+            else if (number==35) {
+                renderer.processEntity(new Entity(texturedCh2, new Vector3f(75.5f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh2, new Vector3f(75,0,-135.5f), 0f,180f,0f,0.15f));
+            }
+            else if (number==36) {
+                renderer.processEntity(new Entity(texturedCh3, new Vector3f(76f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh3, new Vector3f(75,0,-136f), 0f,180f,0f,0.15f));
+            }
+            else if (number==37) {
+                renderer.processEntity(new Entity(texturedCh4, new Vector3f(76.5f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh4, new Vector3f(75,0,-136.5f), 0f,180f,0f,0.15f));
+            }
+            else if (number==38) {
+                renderer.processEntity(new Entity(texturedCh5, new Vector3f(77f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh5, new Vector3f(75,0,-137f), 0f,180f,0f,0.15f));
+            }
+            else if (number==39) {
+                renderer.processEntity(new Entity(texturedCh6, new Vector3f(77.5f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh6, new Vector3f(75,0,-137.5f), 0f,180f,0f,0.15f));
+            }
+            else if (number==40) {
+                renderer.processEntity(new Entity(texturedCh7, new Vector3f(78f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh7, new Vector3f(75,0,-138f), 0f,180f,0f,0.15f));
+            }
+            else if (number==41) {
+                renderer.processEntity(new Entity(texturedCh8, new Vector3f(78.5f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh8, new Vector3f(75,0,-138.5f), 0f,180f,0f,0.15f));
+            }
+            else if (number==42) {
+                renderer.processEntity(new Entity(texturedCh9, new Vector3f(79f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh9, new Vector3f(75,0,-139f), 0f,180f,0f,0.15f));
+            }
+            else if (number==43) {
+                renderer.processEntity(new Entity(texturedCh10, new Vector3f(79.5f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh10, new Vector3f(75,0,-139.5f), 0f,180f,0f,0.15f));
+            }
+            else if (number==44) {
+                renderer.processEntity(new Entity(texturedCh11, new Vector3f(80f,0,-140), 0f,90f,0f,0.15f));
+                renderer.processEntity(new Entity(texturedCh11, new Vector3f(75,0,-140f), 0f,180f,0f,0.15f));
+            }
+            frame=frame+1;
+            if(number==44) number = 1;
 
             //renderer.processEntity(wallA);
             renderer.render(lights, camera);
