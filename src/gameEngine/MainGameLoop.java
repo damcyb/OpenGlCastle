@@ -38,6 +38,8 @@ public class MainGameLoop {
 
         float angle = 0.0f;
         float fortressGateAngle = 0.0f;
+        float knightAngle = 0.0f;
+        float knightAngle2 = 30.0f;
 
         window.init();
         window.createCapabilities();
@@ -187,6 +189,30 @@ public class MainGameLoop {
         texturedStable.getTexture().setShineDamper(2);
         texturedStable.getTexture().setReflectivity(1);
 
+        RawModel knight = OBJLoader.loadOBJModel("knight", loader);
+        ModelTexture textureKnight = loader.loadTexture("knight");
+        TexturedModel texturedKnight = new TexturedModel(knight, textureKnight);
+        texturedKnight.getTexture().setShineDamper(2);
+        texturedKnight.getTexture().setReflectivity(1);
+
+        RawModel barrack = OBJLoader.loadOBJModel("barrack2Converted", loader);
+        ModelTexture textureBarrack = loader.loadTexture("wallBricks3");
+        TexturedModel texturedBarrack = new TexturedModel(barrack, textureBarrack);
+        texturedBarrack.getTexture().setShineDamper(2);
+        texturedBarrack.getTexture().setReflectivity(1);
+
+        RawModel bed = OBJLoader.loadOBJModel("bedConverted", loader);
+        ModelTexture textureBed = loader.loadTexture("bed");
+        TexturedModel texturedBed = new TexturedModel(bed, textureBed);
+        texturedBed.getTexture().setShineDamper(2);
+        texturedBed.getTexture().setReflectivity(1);
+
+        RawModel bench = OBJLoader.loadOBJModel("benchConverted", loader);
+        ModelTexture textureBench = loader.loadTexture("wood");
+        TexturedModel texturedBench = new TexturedModel(bench, textureBench);
+        texturedBench.getTexture().setShineDamper(2);
+        texturedBench.getTexture().setReflectivity(1);
+
         //grass
         TexturedModel grass = new TexturedModel(OBJLoader.loadOBJModel("grassModel", loader),
                 new ModelTexture(loader.loadTexture("grassTexture2").getId()));
@@ -204,13 +230,15 @@ public class MainGameLoop {
         Terrain terrain2 = new Terrain(1,0, loader, new ModelTexture(loader.loadTexture("grass").getId()));
 
         //Entity entity = new Entity(texturedTree, new Vector3f(0,0,-25),0,0,0,1);
-        Light light = new Light(new Vector3f(1000,1000,1000), new Vector3f(0.7f,0.7f,0.7f));
 
+        Light light = new Light(new Vector3f(1000,1000,1000), new Vector3f(0.7f,0.7f,0.7f));
 
         //Light light = new Light(new Vector3f(0,1000,100), new Vector3f(1f,1f,1f));
         List<Light> lights = new ArrayList<Light>();
         lights.add(light);
+
         lights.add(new Light(new Vector3f(62, 0.3f, -118), new Vector3f(0.5f,0.25f,0), new Vector3f(1.5f, 0.01f, 0.002f)));
+
         //lights.add(new Light(new Vector3f(-200, 10,-200), new Vector3f(10,0,0)));
         //lights.add(new Light(new Vector3f(200, 10,200), new Vector3f(0,0,10)));
         //Light light2 = new Light(new Vector3f(0,1000,-100), new Vector3f(0.8f,0.8f,0.8f));
@@ -227,6 +255,8 @@ public class MainGameLoop {
         List<Entity> flagObjects = new ArrayList<>();
         List<Entity> barrelObjects = new ArrayList<>();
         List<Entity> stallObjects = new ArrayList<>();
+        List<Entity> bedObjects = new ArrayList<>();
+        List<Entity> fortressPennantObjects = new ArrayList<>();
 
         for (int i = 0; i < 800; i++) {
             float x = random.nextFloat() * 500 - 50;
@@ -273,6 +303,24 @@ public class MainGameLoop {
                     0f, 0.0f, 0f, 0.3f));
         }
 
+        float[] bedXCoordinates = new float[] {78.5f, 80f, 81.5f, 83f, 84.5f, 86f};
+        float[] bedZCoordinates = new float[] {-117.5f, -117.5f, -117.5f, -117.5f, -117.5f, -117.5f};
+
+        for (int i = 0; i < bedXCoordinates.length; i++) {
+            bedObjects.add(new Entity(texturedBed,
+                    new Vector3f(bedXCoordinates[i],0f, bedZCoordinates[i]),
+                    0f, 90f, 0f, 1f));
+        }
+
+        float[] fortressPennantXCoordinates = new float[] {47.5f, 52f, 56.5f};
+        float[] fortressPennantZCoordinates = new float[] {-124.3f, -124.3f, -124.3f};
+
+        for (int i = 0; i < fortressPennantXCoordinates.length; i++) {
+            bedObjects.add(new Entity(texturedPennant,
+                    new Vector3f(fortressPennantXCoordinates[i],4f, fortressPennantZCoordinates[i]),
+                    0f, 90f, 0f, 1f));
+        }
+
         Entity fortressEntity = new Entity(texturedFortress,
                 new Vector3f(52,4.5f,-130),
                 0f, 0f, 0f, 0.8f);
@@ -296,6 +344,14 @@ public class MainGameLoop {
         Entity pennantEntity = new Entity(texturedPennant,
                 new Vector3f(54.2f, 15f, -130),
                 0f, 0f, 0f, 1f);
+
+        Entity pennantEntity2 = new Entity(texturedPennant,
+                new Vector3f(85f, 2.5f, -120.5f),
+                0f, 90f, 0f, 0.5f);
+
+        Entity pennantEntity3 = new Entity(texturedPennant,
+                new Vector3f(87f, 2.5f, -120.5f),
+                0f, 90f, 0f, 0.5f);
 
         Entity medievalHouseEntity = new Entity(texturedMedievalHouse,
                 new Vector3f(73f, 0f, -147),
@@ -331,13 +387,37 @@ public class MainGameLoop {
                 new Vector3f(70f, 0.1f, -118.5f),
                 0f, 180f, -0f, 0.4f);
 
-        Entity stableHorse = new Entity(texturedHorse,
+        Entity stableHorseEntity = new Entity(texturedHorse,
                 new Vector3f(71f, 1f, -118.1f),
                 0f, -90f, -0f, 0.004f);
 
-        Entity stableHorse2 = new Entity(texturedHorse,
+        Entity stableHorseEntity2 = new Entity(texturedHorse,
                 new Vector3f(67f, 1f, -118.1f),
                 0f, -90f, -0f, 0.004f);
+
+        Entity knightEntity = new Entity(texturedKnight,
+                new Vector3f(102f, 6.5f, -145.1f),
+                0f, 0f, -0f, 1f);
+
+        Entity knightEntity2 = new Entity(texturedKnight,
+                new Vector3f(102f, 6.5f, -130.1f),
+                0f, 0f, -0f, 1f);
+
+        Entity knightFortressEntity = new Entity(texturedKnight,
+                new Vector3f(58f, 0f, -128.1f),
+                0f, -90f, -0f, 1f);
+
+        Entity knightFortressEntity2 = new Entity(texturedKnight,
+                new Vector3f(58f, 0f, -132.1f),
+                0f, -90f, -0f, 1f);
+
+        Entity barrackEntity = new Entity(texturedBarrack,
+                new Vector3f(85f, 2f, -118.5f),
+                0f, 90f, -0f, 1f);
+
+        Entity benchEntity = new Entity(texturedBench,
+                new Vector3f(53.5f, 0f, -127.5f),
+                0f, 90f, -0f, 6f);
 
         //gateEntity.translate(0.0f, 0.0f, 2f);
 
@@ -365,6 +445,17 @@ public class MainGameLoop {
                 fortressGateAngle++;
             }
 
+            knightEntity.increasePosition(0, 0,(float)Math.sin(Math.toRadians(knightAngle) * 0.5) / 30);
+            if (knightAngle % 720 == 359 || knightAngle % 720 == 719) {
+                knightEntity.setRotY(knightEntity.getRotY() + 180);
+            }
+            knightAngle++;
+            knightEntity2.increasePosition(0, 0,(float)Math.sin(Math.toRadians(knightAngle) * 0.5) / 30);
+            if (knightAngle2 % 720 == 359 || knightAngle2 % 720 == 719) {
+                knightEntity2.setRotY(knightEntity2.getRotY() + 180);
+            }
+            knightAngle2++;
+
             renderer.processTerrain(terrain);
             renderer.processTerrain(terrain2);
 
@@ -380,6 +471,12 @@ public class MainGameLoop {
             for (Entity object : stallObjects) {
                 renderer.processEntity(object);
             }
+            for (Entity object : bedObjects) {
+                renderer.processEntity(object);
+            }
+            for (Entity object : fortressPennantObjects) {
+                renderer.processEntity(object);
+            }
 
             renderer.processEntity(lanternX);
             renderer.processEntity(medievalHouseEntity);
@@ -390,17 +487,24 @@ public class MainGameLoop {
             renderer.processEntity(carriageEntity);
             renderer.processEntity(pavementEntity);
             renderer.processEntity(pennantEntity);
+            renderer.processEntity(pennantEntity2);
+            renderer.processEntity(pennantEntity3);
             renderer.processEntity(fortressEntity);
             renderer.processEntity(gateEntity);
             renderer.processEntity(fortressGateEntity);
             renderer.processEntity(towerEntity);
             renderer.processEntity(rainProtectionEntity);
             renderer.processEntity(stableEntity);
-            renderer.processEntity(stableHorse);
-            renderer.processEntity(stableHorse2);
+            renderer.processEntity(stableHorseEntity);
+            renderer.processEntity(stableHorseEntity2);
+            renderer.processEntity(knightEntity);
+            renderer.processEntity(knightEntity2);
+            renderer.processEntity(barrackEntity);
+            renderer.processEntity(benchEntity);
+            renderer.processEntity(knightFortressEntity);
+            renderer.processEntity(knightFortressEntity2);
             //renderer.processEntity(hayEntity);
             //gateEntity.increaseRotation(0f, 0.5f, 0f);
-
 
             if(frame%7==0){
                 number=number+1;
