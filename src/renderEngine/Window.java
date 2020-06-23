@@ -98,6 +98,9 @@ public class Window {
                 if (key == GLFW_KEY_SPACE) {
                     MainGameLoop.gateAction = true;
                 }
+                if (key == GLFW_KEY_LEFT_CONTROL) {
+                    MainGameLoop.fortressGateAction = true;
+                }
                 //Door.openDoor(key);
             }
         });

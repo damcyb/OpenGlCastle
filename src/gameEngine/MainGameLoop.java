@@ -27,6 +27,7 @@ import static org.lwjgl.opengl.GL14.glBlendFuncSeparate;
 public class MainGameLoop {
 
     public static boolean gateAction = false;
+    public static boolean fortressGateAction = false;
 
     public static void main(String[] args) {
 
@@ -36,6 +37,7 @@ public class MainGameLoop {
         TerrainCoordinatesLottery lottery = new TerrainCoordinatesLottery();
 
         float angle = 0.0f;
+        float fortressGateAngle = 0.0f;
 
         window.init();
         window.createCapabilities();
@@ -69,11 +71,11 @@ public class MainGameLoop {
 //        modelTexture.setReflectivity(1);
 
         //castle
-        RawModel house = OBJLoader.loadOBJModel("twierdza6Converted", loader);
-        ModelTexture textureHouse = loader.loadTexture("wallBricks3");
-        TexturedModel texturedHouse = new TexturedModel(house, textureHouse);
-        texturedHouse.getTexture().setShineDamper(2);
-        texturedHouse.getTexture().setReflectivity(1);
+        RawModel fortress = OBJLoader.loadOBJModel("twierdza6Converted", loader);
+        ModelTexture textureFortress = loader.loadTexture("wallBricks3");
+        TexturedModel texturedFortress = new TexturedModel(fortress, textureFortress);
+        texturedFortress.getTexture().setShineDamper(2);
+        texturedFortress.getTexture().setReflectivity(1);
 
         //walls and rooks
 //        RawModel wall = OBJLoader.loadOBJModel("zamek1Converted", loader);
@@ -86,6 +88,11 @@ public class MainGameLoop {
         RawModel gate = OBJLoader.loadOBJModel("gate2", loader);
         ModelTexture textureGate = loader.loadTexture("iron gate");
         TexturedModel texturedGate = new TexturedModel(gate, textureGate);
+
+        //gate
+        RawModel fortressGate = OBJLoader.loadOBJModel("gate2", loader);
+        ModelTexture textureFortressGate = loader.loadTexture("iron gate");
+        TexturedModel texturedFortressGate = new TexturedModel(fortressGate, textureFortressGate);
 
         RawModel tower = OBJLoader.loadOBJModel("castleD4converted", loader);
         ModelTexture textureTower = loader.loadTexture("wallBricks3");
@@ -104,6 +111,48 @@ public class MainGameLoop {
         TexturedModel texturedPennant = new TexturedModel(pennant, texturePennant);
 //        texturedPennant.getTexture().setShineDamper(1);
 //        texturedPennant.getTexture().setReflectivity(1);
+
+        RawModel flag = OBJLoader.loadOBJModel("flagConverted", loader);
+        ModelTexture textureFlag = loader.loadTexture("flag");
+        TexturedModel texturedFlag = new TexturedModel(flag, textureFlag);
+        texturedFlag.getTexture().setShineDamper(2);
+        texturedFlag.getTexture().setReflectivity(1);
+
+        RawModel medievalHouse = OBJLoader.loadOBJModel("medievalHouse", loader);
+        ModelTexture textureMedievalHouse = loader.loadTexture("Medieval_House_Diff");
+        TexturedModel texturedMedievalHouse = new TexturedModel(medievalHouse, textureMedievalHouse);
+        texturedMedievalHouse.getTexture().setShineDamper(2);
+        texturedMedievalHouse.getTexture().setReflectivity(1);
+
+        RawModel carriage = OBJLoader.loadOBJModel("carriageConverted", loader);
+        ModelTexture textureCarriage = loader.loadTexture("wood");
+        TexturedModel texturedCarriage = new TexturedModel(carriage, textureCarriage);
+        texturedCarriage.getTexture().setShineDamper(2);
+        texturedCarriage.getTexture().setReflectivity(1);
+
+        RawModel barrel = OBJLoader.loadOBJModel("barrelConverted", loader);
+        ModelTexture textureBarrel = loader.loadTexture("wood");
+        TexturedModel texturedBarrel = new TexturedModel(barrel, textureBarrel);
+        texturedBarrel.getTexture().setShineDamper(2);
+        texturedBarrel.getTexture().setReflectivity(1);
+
+        RawModel stall = OBJLoader.loadOBJModel("stall", loader);
+        ModelTexture textureStall = loader.loadTexture("stall");
+        TexturedModel texturedStall = new TexturedModel(stall, textureStall);
+        texturedStall.getTexture().setShineDamper(2);
+        texturedStall.getTexture().setReflectivity(1);
+
+        RawModel rainProtection = OBJLoader.loadOBJModel("rainProtectionConverted", loader);
+        ModelTexture textureRainProtection = loader.loadTexture("woodwithcolor");
+        TexturedModel texturedRainProtection = new TexturedModel(rainProtection, textureRainProtection);
+//        texturedRainProtection.getTexture().setShineDamper(2);
+//        texturedRainProtection.getTexture().setReflectivity(1);
+
+        RawModel hay = OBJLoader.loadOBJModel("hayConverted", loader);
+        ModelTexture textureHay = loader.loadTexture("hay");
+        TexturedModel texturedHay = new TexturedModel(hay, textureHay);
+//        texturedHay.getTexture().setShineDamper(2);
+//        texturedHay.getTexture().setReflectivity(1);
 
         //grass
         TexturedModel grass = new TexturedModel(OBJLoader.loadOBJModel("grassModel", loader),
@@ -142,6 +191,9 @@ public class MainGameLoop {
         Random random = new Random();
 
         List<Entity> allObjects = new ArrayList<>();
+        List<Entity> flagObjects = new ArrayList<>();
+        List<Entity> barrelObjects = new ArrayList<>();
+        List<Entity> stallObjects = new ArrayList<>();
 
         for (int i = 0; i < 800; i++) {
             float x = random.nextFloat() * 500 - 50;
@@ -161,12 +213,43 @@ public class MainGameLoop {
                     0f, 0f, 0f, 0.2f));
         }
 
-        Entity houseX = new Entity(texturedHouse,
-                new Vector3f(50,4.5f,-130),
+        float[] flagXCoordinates = new float[] {44, 44, 101.5f, 101.5f};
+        float[] flagZCoordinates = new float[] {-115.5f, -151, -115.5f, -151};
+
+        for (int i = 0; i < 4; i++) {
+            flagObjects.add(new Entity(texturedFlag,
+                    new Vector3f(flagXCoordinates[i],8.5f,flagZCoordinates[i]),
+                    0f, 0f, 0f, 4f));
+        }
+
+        float[] barrelXCoordinates = new float[] {77, 77, 77.5f, 50, 50.5f, 50, 50.1f, 50.8f};
+        float[] barrelZCoordinates = new float[] {-137, -138, -137.5f, -120, -120.5f, -120.9f, -122, -122.5f};
+
+        for (int i = 0; i < barrelXCoordinates.length; i++) {
+            flagObjects.add(new Entity(texturedBarrel,
+                    new Vector3f(barrelXCoordinates[i],0f,barrelZCoordinates[i]),
+                    0f, 0.1f, 0f, 4f));
+        }
+
+        float[] stallXCoordinates = new float[] {50, 53, 56, 59};
+        float[] stallZCoordinates = new float[] {-118, -118, -118, -118};
+
+        for (int i = 0; i < stallXCoordinates.length; i++) {
+            stallObjects.add(new Entity(texturedStall,
+                    new Vector3f(stallXCoordinates[i],0f, stallZCoordinates[i]),
+                    0f, 0.0f, 0f, 0.3f));
+        }
+
+        Entity fortressEntity = new Entity(texturedFortress,
+                new Vector3f(52,4.5f,-130),
                 0f, 0f, 0f, 0.8f);
 
         Entity gateEntity = new Entity(texturedGate,
                 new Vector3f(100,1.2f,-133),
+                0f, 0f, 0f, 1f);
+
+        Entity fortressGateEntity = new Entity(texturedFortressGate,
+                new Vector3f(57,1.2f,-130),
                 0f, 0f, 0f, 1f);
 
         Entity towerEntity = new Entity(texturedTower,
@@ -178,8 +261,38 @@ public class MainGameLoop {
                 0f, 90f, 0f, 1f);
 
         Entity pennantEntity = new Entity(texturedPennant,
-                new Vector3f(53.0f, 15f, -130),
+                new Vector3f(54.2f, 15f, -130),
                 0f, 0f, 0f, 1f);
+
+        Entity medievalHouseEntity = new Entity(texturedMedievalHouse,
+                new Vector3f(73f, 0f, -147),
+                0f, 0f, 0f, 0.6f);
+
+        Entity medievalHouseEntity2 = new Entity(texturedMedievalHouse,
+                new Vector3f(80f, 0f, -147),
+                0f, 0f, 0f, 0.6f);
+
+        Entity medievalHouseEntity3 = new Entity(texturedMedievalHouse,
+                new Vector3f(87f, 0f, -147),
+                0f, 0f, 0f, 0.6f);
+        Entity medievalHouseEntity4 = new Entity(texturedMedievalHouse,
+                new Vector3f(94f, 0f, -147),
+                0f, 0f, 0f, 0.6f);
+        Entity medievalHouseEntity5 = new Entity(texturedMedievalHouse,
+                new Vector3f(69f, 0f, -140),
+                0f, 90f, 0f, 0.6f);
+
+        Entity carriageEntity = new Entity(texturedCarriage,
+                new Vector3f(74f, 0.1f, -143),
+                -5f, 15f, -8f, 4f);
+
+        Entity rainProtectionEntity = new Entity(texturedRainProtection,
+                new Vector3f(95.5f, 0.1f, -140),
+                0f, -180f, -0f, 4f);
+
+        Entity hayEntity = new Entity(texturedHay,
+                new Vector3f(99.5f, 0f, -140),
+                0f, 0f, -0f, 1f);
 
         //gateEntity.translate(0.0f, 0.0f, 2f);
         Entity horseX = new Entity(texturedHorse,
@@ -192,9 +305,6 @@ public class MainGameLoop {
 
         while(!window.isClosed()) {
 
-            //cameraLight.setPosition(camera.getPosition());
-            //window.clearFrameBuffer();
-
             if(gateAction) {
                 gateEntity.increasePosition(0, (float)Math.sin(Math.toRadians(angle)) /50,0f);
                 if (angle % 360 == 179 || angle % 360 == 359) {
@@ -202,22 +312,46 @@ public class MainGameLoop {
                 }
                 angle++;
             }
+            if(fortressGateAction) {
+                fortressGateEntity.increasePosition(0, (float)Math.sin(Math.toRadians(fortressGateAngle)) /60,0f);
+                if (fortressGateAngle % 360 == 179 || fortressGateAngle % 360 == 359) {
+                    fortressGateAction = false;
+                }
+                fortressGateAngle++;
+            }
 
             renderer.processTerrain(terrain);
             renderer.processTerrain(terrain2);
-            //entity.increaseRotation(0,1,0);
+
             for (Entity object : allObjects) {
+                renderer.processEntity(object);
+            }
+            for (Entity object : flagObjects) {
+                renderer.processEntity(object);
+            }
+            for (Entity object : barrelObjects) {
+                renderer.processEntity(object);
+            }
+            for (Entity object : stallObjects) {
                 renderer.processEntity(object);
             }
 
             renderer.processEntity(horseX);
             renderer.processEntity(lanternX);
-
+            renderer.processEntity(medievalHouseEntity);
+            renderer.processEntity(medievalHouseEntity2);
+            renderer.processEntity(medievalHouseEntity3);
+            renderer.processEntity(medievalHouseEntity4);
+            renderer.processEntity(medievalHouseEntity5);
+            renderer.processEntity(carriageEntity);
             renderer.processEntity(pavementEntity);
             renderer.processEntity(pennantEntity);
-            renderer.processEntity(houseX);
+            renderer.processEntity(fortressEntity);
             renderer.processEntity(gateEntity);
+            renderer.processEntity(fortressGateEntity);
             renderer.processEntity(towerEntity);
+            renderer.processEntity(rainProtectionEntity);
+            //renderer.processEntity(hayEntity);
             //gateEntity.increaseRotation(0f, 0.5f, 0f);
 
             //renderer.processEntity(wallA);

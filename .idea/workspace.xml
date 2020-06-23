@@ -20,16 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e014fd7f-e546-460f-806e-66563125f860" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/entities/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/entities/Camera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/entities/Door.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/entities/Door.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/entities/Light.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/entities/Light.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/gameEngine/MainGameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/gameEngine/MainGameLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/renderEngine/MasterRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/renderEngine/MasterRenderer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/renderEngine/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/renderEngine/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/shaders/StaticShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/shaders/StaticShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OpenGlCastle/shaders/TerrainShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OpenGlCastle/shaders/TerrainShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Door.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameEngine/MainGameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameEngine/MainGameLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderEngine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/Window.java" afterDir="false" />
     </list>
@@ -43,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gameEngine/MainGameLoop.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="82">
-              <caret line="146" column="46" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
+              <caret line="293" column="31" selection-start-line="293" selection-start-column="31" selection-end-line="293" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5183#5190#0" expanded="true" />
@@ -65,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/toolbox/TerrainCoordinatesLottery.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
@@ -116,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/renderEngine/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="99" column="17" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+            <state relative-caret-position="303">
+              <caret line="100" column="48" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -158,9 +150,9 @@
         <option value="$PROJECT_DIR$/src/entities/Entity.java" />
         <option value="$PROJECT_DIR$/src/entities/Camera.java" />
         <option value="$PROJECT_DIR$/src/entities/Door.java" />
+        <option value="$PROJECT_DIR$/src/toolbox/TerrainCoordinatesLottery.java" />
         <option value="$PROJECT_DIR$/src/renderEngine/Window.java" />
         <option value="$PROJECT_DIR$/src/gameEngine/MainGameLoop.java" />
-        <option value="$PROJECT_DIR$/src/toolbox/TerrainCoordinatesLottery.java" />
       </list>
     </option>
   </component>
@@ -573,30 +565,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameEngine/MainGameLoop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="146" column="46" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5183#5190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderEngine/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="99" column="17" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/toolbox/TerrainCoordinatesLottery.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/renderEngine/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="100" column="48" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameEngine/MainGameLoop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="293" column="31" selection-start-line="293" selection-start-column="31" selection-end-line="293" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5183#5190#0" expanded="true" />
           </folding>
         </state>
       </provider>
