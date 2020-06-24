@@ -3,6 +3,7 @@ package gameEngine;
 import entities.Camera;
 import entities.Entity;
 import entities.Light;
+import entities.Music;
 import models.TexturedModel;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector3f;
@@ -416,6 +417,13 @@ public class MainGameLoop {
         int number = 1;
         int frame=0;
 
+        Music music = new Music("Stopping By the Inn");
+        try {
+            music.playSound();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         while(!window.isClosed()) {
 
             if(gateAction) {
@@ -687,6 +695,7 @@ public class MainGameLoop {
         }
         renderer.cleanUp();
         loader.cleanUp();
+        music.stop();
         window.stop();
     }
 }
